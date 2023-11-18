@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystemInterface.h"
 #include "InputActionValue.h"
 #include "GameFramework/Character.h"
 #include "MainCharacter.generated.h"
@@ -13,12 +14,14 @@ class UInputAction;
 class UInputMappingContext;
 
 UCLASS()
-class COMBATTRY_API AMainCharacter : public ACharacter
+class COMBATTRY_API AMainCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta=(AllowPrivateAccess="true"))
 	UInputMappingContext* MappingContext;
+
+	
 
 public:
 	
@@ -27,6 +30,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 protected:
 	
@@ -55,6 +60,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 	UCameraComponent* ViewCamera;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = "Abilities")
+	UAbilitySystemComponent* AbilitySystemComponent;
 	
 	
 	

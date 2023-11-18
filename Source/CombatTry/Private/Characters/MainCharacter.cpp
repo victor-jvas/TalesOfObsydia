@@ -2,9 +2,11 @@
 
 #include "Characters/MainCharacter.h"
 
+#include "AbilitySystemComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Camera/CameraComponent.h"
+#include "Characters/MainCharacterPlayerState.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
@@ -42,6 +44,14 @@ void AMainCharacter::BeginPlay()
 			Subsystem->AddMappingContext(MappingContext, 0);
 		}
 	}
+
+	AMainCharacterPlayerState* PS = GetPlayerState<AMainCharacterPlayerState>();
+	if (PS)
+	{
+		AbilitySystemComponent = PS->GetAbilitySystemComponent();
+		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+	}
+	
 	
 }
 
@@ -92,5 +102,14 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 		Component->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
 	}
 
+}
+
+UAbilitySystemComponent* AMainCharacter::GetAbilitySystemComponent() const
+{
+	if (const AMainCharacterPlayerState* PS = Cast<AMainCharacterPlayerState>(GetPlayerState()))
+	{
+		return PS->GetAbilitySystemComponent();
+	}
+	return nullptr;
 }
 
