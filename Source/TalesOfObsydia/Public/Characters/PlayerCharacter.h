@@ -16,13 +16,19 @@ class TALESOFOBSYDIA_API APlayerCharacter : public ABaseCharacter
 {
 	GENERATED_BODY()
 
+	
+
+public:
+	
 	APlayerCharacter();
+	void InitAbilitySystemInfo();
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void OnRep_PlayerState() override;
 
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Camera")
 	TObjectPtr<USpringArmComponent> SpringArmComponent;
-
 	UPROPERTY(EditAnywhere, Category = "Camera")
 	TObjectPtr<UCameraComponent> CameraComponent;
 	

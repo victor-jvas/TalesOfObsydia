@@ -3,6 +3,9 @@
 
 #include "Player/BasePlayerController.h"
 
+#include "AbilitySystemComponent.h"
+#include "Player/BasePlayerState.h"
+
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
@@ -56,5 +59,6 @@ void ABasePlayerController::SetupInputComponent()
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ABasePlayerController::Move);
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ABasePlayerController::Look);
 }
+
 
 

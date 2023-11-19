@@ -3,9 +3,11 @@
 
 #include "Characters/PlayerCharacter.h"
 
+#include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Player/BasePlayerState.h"
 
 APlayerCharacter::APlayerCharacter()
 {
@@ -21,4 +23,30 @@ APlayerCharacter::APlayerCharacter()
 
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 360.f, 0.f);
+}
+
+
+void APlayerCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	//Set the owner and avatar for the ASC in the server
+	InitAbilitySystemInfo();
+}
+
+void APlayerCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+
+	//Set the owner and avatar for the ASC in the client
+	InitAbilitySystemInfo();
+}
+
+void APlayerCharacter::InitAbilitySystemInfo()
+{
+	ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
+	check(PS);
+	PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+	AbilitySystemComponent = PS->GetAbilitySystemComponent();
+	AttributeSet = PS->GetAttributeSet();
 }
