@@ -6,6 +6,7 @@
 #include "GameFramework/HUD.h"
 #include "BaseHUD.generated.h"
 
+class UBaseUserWidget;
 /**
  * 
  */
@@ -13,5 +14,19 @@ UCLASS()
 class TALESOFOBSYDIA_API ABaseHUD : public AHUD
 {
 	GENERATED_BODY()
+
+public:
+
+	UPROPERTY()
+	TObjectPtr<UBaseUserWidget> OverlayWidget;
+	
+protected:
+
+	virtual void BeginPlay() override;
+
+private:
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UBaseUserWidget> OverlayWidgetClass;
 	
 };
