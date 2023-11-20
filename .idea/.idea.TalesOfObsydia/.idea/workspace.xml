@@ -9,8 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/BaseAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/BaseAttributeSet.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/AbilitySystem/BaseAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/AbilitySystem/BaseAttributeSet.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TalesOfObsydia.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TalesOfObsydia.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +125,8 @@
       <workItem from="1700341431224" duration="10084000" />
       <workItem from="1700365666420" duration="72000" />
       <workItem from="1700365896953" duration="635000" />
-      <workItem from="1700414790923" duration="9207000" />
+      <workItem from="1700414790923" duration="10607000" />
+      <workItem from="1700489815488" duration="2383000" />
     </task>
     <servers />
   </component>
