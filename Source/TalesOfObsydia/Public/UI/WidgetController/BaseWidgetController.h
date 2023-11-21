@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemComponent.h"
-#include "UObject/NoExportTypes.h"
 #include "BaseWidgetController.generated.h"
 
 class UAttributeSet;
@@ -40,6 +39,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SetWidgetControllerParams(const FWidgetControllerParams& WidgetControllerParams);
+
+	virtual void BroadCastInitialValues();
+	virtual void BindCallbacksToDependencies();
 
 protected:
 

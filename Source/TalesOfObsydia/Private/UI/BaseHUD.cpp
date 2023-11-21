@@ -32,6 +32,8 @@ void ABaseHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySyst
 	UOverlayWidgetController* WController = GetOverlayWidgetController(WCP);
 
 	OverlayWidget->SetWidgetController(WController);
+	WidgetController->BroadCastInitialValues();
+	WidgetController->BindCallbacksToDependencies();
 	
 	
 	Widget->AddToViewport();
