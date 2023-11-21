@@ -5,11 +5,35 @@
 
 #include "Blueprint/UserWidget.h"
 #include "UI/Widget/BaseUserWidget.h"
+#include "UI/WidgetController/OverlayWidgetController.h"
 
-void ABaseHUD::BeginPlay()
+UOverlayWidgetController* ABaseHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
 {
-	Super::BeginPlay();
+	if (WidgetController == nullptr)
+	{
+		WidgetController = NewObject<UOverlayWidgetController>(this, ControllerClass);
+		WidgetController->SetWidgetControllerParams(WCParams);
+	}
 
-	UUserWidget* Widget = CreateWidget<UUserWidget>(GetWorld(), OverlayWidgetClass);
+	return WidgetController;
+}
+
+void ABaseHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC,
+	UAttributeSet* AS) 
+{
+
+	checkf(WidgetClass, TEXT("Overlay Class not set, Check BP_BaseHUD"));
+	checkf(ControllerClass, TEXT("Controller Class not set, check BP_BaseHUD"));
+
+	UUserWidget* Widget = CreateWidget<UUserWidget>(GetWorld(), WidgetClass);
+	OverlayWidget = Cast<UBaseUserWidget>(Widget);
+
+	const FWidgetControllerParams WCP(PC, PS, ASC, AS);
+	UOverlayWidgetController* WController = GetOverlayWidgetController(WCP);
+
+	OverlayWidget->SetWidgetController(WController);
+	
+	
 	Widget->AddToViewport();
+	
 }

@@ -7,7 +7,9 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Player/BasePlayerController.h"
 #include "Player/BasePlayerState.h"
+#include "UI/BaseHUD.h"
 
 APlayerCharacter::APlayerCharacter()
 {
@@ -49,4 +51,14 @@ void APlayerCharacter::InitAbilitySystemInfo()
 	PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
 	AbilitySystemComponent = PS->GetAbilitySystemComponent();
 	AttributeSet = PS->GetAttributeSet();
+
+	if(ABasePlayerController* NewController = Cast<ABasePlayerController>(GetController()))
+	{
+		if(ABaseHUD* BaseHUD =  Cast<ABaseHUD>(NewController->GetHUD()))
+		{
+			BaseHUD->InitOverlay(NewController, PS, AbilitySystemComponent, AttributeSet);			
+		}
+			
+	}
+	
 }
