@@ -23,8 +23,10 @@ public:
 	ABasePlayerState();
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+	void AddCharacterAbilities();
 
 	TObjectPtr<UAttributeSet> GetAttributeSet() const{ return AttributeSet;	}
+
 
 protected:
 

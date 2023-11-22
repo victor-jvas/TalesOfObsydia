@@ -5,6 +5,7 @@
 
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
+#include "AbilitySystem/BaseGameplayAbility.h"
 
 ABasePlayerState::ABasePlayerState()
 {
@@ -22,3 +23,9 @@ UAbilitySystemComponent* ABasePlayerState::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
 }
+
+void ABasePlayerState::AddCharacterAbilities()
+{
+}
+
+
