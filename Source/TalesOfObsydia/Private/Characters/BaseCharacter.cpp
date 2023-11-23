@@ -3,6 +3,9 @@
 
 #include "Characters/BaseCharacter.h"
 
+#include "AbilitySystemComponent.h"
+#include "AbilitySystem/BaseAbilitySystemComponent.h"
+
 
 ABaseCharacter::ABaseCharacter()
 {
@@ -22,6 +25,20 @@ void ABaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void ABaseCharacter::AddCharacterAbilities()
+{
+	if (!HasAuthority()){ return; }
+
+	CastChecked<UBaseAbilitySystemComponent>(AbilitySystemComponent)->AddCharacterAbilities(InitialAbilities);
+}
+
+void ABaseCharacter::SetDefaultAttributes()
+{
+	const FGameplayEffectContextHandle EffectContext = GetAbilitySystemComponent()->MakeEffectContext();
+	const FGameplayEffectSpecHandle EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(InitAttributeEffect, 1, EffectContext);
+	CastChecked<UBaseAbilitySystemComponent>(GetAbilitySystemComponent())->ApplyGameplayEffectToSelf(EffectSpec.Data->Def, 1, EffectContext);
 }
 
 

@@ -34,6 +34,8 @@ void APlayerCharacter::PossessedBy(AController* NewController)
 
 	//Set the owner and avatar for the ASC in the server
 	InitAbilitySystemInfo();
+	AddCharacterAbilities();
+	SetDefaultAttributes();
 }
 
 void APlayerCharacter::OnRep_PlayerState()

@@ -7,6 +7,7 @@
 #include "GameFramework/Character.h"
 #include "BaseCharacter.generated.h"
 
+class UGameplayAbility;
 class UBaseGameplayAbility;
 class UGameplayEffect;
 class UAttributeSet;
@@ -28,14 +29,16 @@ public:
 protected:
 	
 	virtual void BeginPlay() override;
+	virtual void AddCharacterAbilities();
+	virtual void SetDefaultAttributes();
 
 	UPROPERTY(VisibleAnywhere, Category = "GAS|Abilities")
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 	UPROPERTY(VisibleAnywhere, Category = "GAS|Attributes")
 	TObjectPtr<UAttributeSet> AttributeSet;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
-	TSubclassOf< UGameplayEffect> InitAttributeEffect;
+	TSubclassOf<UGameplayEffect> InitAttributeEffect;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
-	TArray<TSubclassOf<UBaseGameplayAbility>> InitialAbilities;
+	TArray<TSubclassOf<UGameplayAbility>> InitialAbilities;
 	
 };
