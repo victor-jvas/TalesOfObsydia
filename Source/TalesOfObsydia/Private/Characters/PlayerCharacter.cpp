@@ -58,7 +58,8 @@ void APlayerCharacter::InitAbilitySystemInfo()
 	{
 		if(ABaseHUD* BaseHUD =  Cast<ABaseHUD>(NewController->GetHUD()))
 		{
-			BaseHUD->InitOverlay(NewController, PS, AbilitySystemComponent, AttributeSet);			
+			BaseHUD->InitOverlay(NewController, PS, AbilitySystemComponent, AttributeSet);
+			AddCharacterAbilities();
 		}
 			
 	}
