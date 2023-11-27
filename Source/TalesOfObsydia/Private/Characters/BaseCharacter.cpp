@@ -31,7 +31,11 @@ void ABaseCharacter::AddCharacterAbilities()
 {
 	if (!HasAuthority()){ return; }
 
-	CastChecked<UBaseAbilitySystemComponent>(AbilitySystemComponent)->AddCharacterAbilities(InitialAbilities);
+	for (TSubclassOf<UGameplayAbility>& StartupAbility : CharacterAbilities)
+	{
+		AbilitySystemComponent->GiveAbility(
+			FGameplayAbilitySpec(StartupAbility, 1, 1, this));
+	}
 }
 
 void ABaseCharacter::SetDefaultAttributes()

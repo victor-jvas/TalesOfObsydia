@@ -39,6 +39,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
 	TSubclassOf<UGameplayEffect> InitAttributeEffect;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
-	TArray<TSubclassOf<UGameplayAbility>> InitialAbilities;
+	TArray<TSubclassOf<UGameplayAbility>> CharacterAbilities;
 	
 };

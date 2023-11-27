@@ -44,6 +44,8 @@ void APlayerCharacter::OnRep_PlayerState()
 
 	//Set the owner and avatar for the ASC in the client
 	InitAbilitySystemInfo();
+	AddCharacterAbilities();
+	SetDefaultAttributes();
 }
 
 void APlayerCharacter::InitAbilitySystemInfo()
@@ -53,13 +55,14 @@ void APlayerCharacter::InitAbilitySystemInfo()
 	PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
 	AbilitySystemComponent = PS->GetAbilitySystemComponent();
 	AttributeSet = PS->GetAttributeSet();
+	
 
 	if(ABasePlayerController* NewController = Cast<ABasePlayerController>(GetController()))
 	{
 		if(ABaseHUD* BaseHUD =  Cast<ABaseHUD>(NewController->GetHUD()))
 		{
 			BaseHUD->InitOverlay(NewController, PS, AbilitySystemComponent, AttributeSet);
-			AddCharacterAbilities();
+			
 		}
 			
 	}
