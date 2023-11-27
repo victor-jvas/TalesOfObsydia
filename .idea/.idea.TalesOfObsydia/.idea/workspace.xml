@@ -9,9 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGameplayTags.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGameplayTags.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" afterDir="false" />
     </list>
@@ -24,6 +21,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -206,7 +207,7 @@
       <workItem from="1700655470971" duration="10980000" />
       <workItem from="1700760266808" duration="9799000" />
       <workItem from="1700832310789" duration="6252000" />
-      <workItem from="1701103926196" duration="7866000" />
+      <workItem from="1701103926196" duration="9461000" />
     </task>
     <servers />
   </component>
@@ -238,6 +239,11 @@
           <url>file://$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp</url>
           <line>44</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp</url>
+          <line>26</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

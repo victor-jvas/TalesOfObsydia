@@ -45,7 +45,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> CharacterAbilities;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS|Tags")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "ThisIsATestCategory")
 	FGameplayTagContainer TagContainer;
 	
 };

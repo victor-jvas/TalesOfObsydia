@@ -24,5 +24,6 @@ void AEnemyCharacter::BeginPlay()
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	AddCharacterAbilities();
 	SetDefaultAttributes();
+	AbilitySystemComponent->AddReplicatedLooseGameplayTags(TagContainer);
 	
 }
