@@ -14,6 +14,7 @@ AEnemyCharacter::AEnemyCharacter()
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 
 	AttributeSet = CreateDefaultSubobject<UBaseAttributeSet>("AttributeSet");
+	
 }
 
 void AEnemyCharacter::BeginPlay()
@@ -21,4 +22,7 @@ void AEnemyCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	AddCharacterAbilities();
+	SetDefaultAttributes();
+	
 }

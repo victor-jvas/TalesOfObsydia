@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
+#include "GameplayTagContainer.h"
 #include "GameFramework/Character.h"
 #include "BaseCharacter.generated.h"
 
@@ -34,11 +35,17 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "GAS|Abilities")
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+	
 	UPROPERTY(VisibleAnywhere, Category = "GAS|Attributes")
 	TObjectPtr<UAttributeSet> AttributeSet;
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
 	TSubclassOf<UGameplayEffect> InitAttributeEffect;
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> CharacterAbilities;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS|Tags")
+	FGameplayTagContainer TagContainer;
 	
 };

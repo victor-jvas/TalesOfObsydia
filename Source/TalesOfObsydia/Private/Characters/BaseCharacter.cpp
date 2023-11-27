@@ -31,7 +31,7 @@ void ABaseCharacter::AddCharacterAbilities()
 {
 	if (!HasAuthority()){ return; }
 
-	for (TSubclassOf<UGameplayAbility>& StartupAbility : CharacterAbilities)
+	for (const TSubclassOf<UGameplayAbility>& StartupAbility : CharacterAbilities)
 	{
 		AbilitySystemComponent->GiveAbility(
 			FGameplayAbilitySpec(StartupAbility, 1, 1, this));
@@ -42,7 +42,7 @@ void ABaseCharacter::SetDefaultAttributes()
 {
 	const FGameplayEffectContextHandle EffectContext = GetAbilitySystemComponent()->MakeEffectContext();
 	const FGameplayEffectSpecHandle EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(InitAttributeEffect, 1, EffectContext);
-	CastChecked<UBaseAbilitySystemComponent>(GetAbilitySystemComponent())->ApplyGameplayEffectToSelf(EffectSpec.Data->Def, 1, EffectContext);
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*EffectSpec.Data.Get(), GetAbilitySystemComponent());
 }
 
 
