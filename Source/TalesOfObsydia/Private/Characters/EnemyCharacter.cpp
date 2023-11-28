@@ -3,6 +3,7 @@
 
 #include "Characters/EnemyCharacter.h"
 
+
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
 
@@ -24,6 +25,9 @@ void AEnemyCharacter::BeginPlay()
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	AddCharacterAbilities();
 	SetDefaultAttributes();
-	AbilitySystemComponent->AddReplicatedLooseGameplayTags(TagContainer);
+	
+	AbilitySystemComponent->AddLooseGameplayTags(DefaultTags);
+	
+	
 	
 }
