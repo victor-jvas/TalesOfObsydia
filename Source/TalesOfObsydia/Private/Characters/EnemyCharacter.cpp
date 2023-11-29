@@ -6,15 +6,23 @@
 
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
+#include "Components/SphereComponent.h"
 
 
 AEnemyCharacter::AEnemyCharacter()
 {
+
+	/** Ability System **/
 	AbilitySystemComponent = CreateDefaultSubobject<UBaseAbilitySystemComponent>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 
 	AttributeSet = CreateDefaultSubobject<UBaseAttributeSet>("AttributeSet");
+	/** Ability System **/
+
+	CollisionSphere = CreateDefaultSubobject<USphereComponent>("Collision Sphere");
+	CollisionSphere->SetVisibility(true);
+	CollisionSphere->SetSphereRadius(50.f);
 	
 }
 

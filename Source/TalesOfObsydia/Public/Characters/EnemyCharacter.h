@@ -6,6 +6,7 @@
 #include "Characters/BaseCharacter.h"
 #include "EnemyCharacter.generated.h"
 
+class USphereComponent;
 class UBaseAbilitySystemComponent;
 class UBaseAttributeSet;
 /**
@@ -23,5 +24,9 @@ public:
 protected:
 
 	virtual void BeginPlay() override;
-	
+
+private:
+
+	UPROPERTY(EditAnywhere)
+	TObjectPtr<USphereComponent> CollisionSphere;
 };

@@ -9,8 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGameplayTags.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGameplayTags.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/EnemyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/EnemyCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -219,7 +222,9 @@
       <workItem from="1700655470971" duration="10980000" />
       <workItem from="1700760266808" duration="9799000" />
       <workItem from="1700832310789" duration="6252000" />
-      <workItem from="1701103926196" duration="16100000" />
+      <workItem from="1701103926196" duration="16705000" />
+      <workItem from="1701174688495" duration="7384000" />
+      <workItem from="1701263090500" duration="2525000" />
     </task>
     <servers />
   </component>
@@ -244,7 +249,7 @@
         </line-breakpoint>
         <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp</url>
-          <line>26</line>
+          <line>34</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
