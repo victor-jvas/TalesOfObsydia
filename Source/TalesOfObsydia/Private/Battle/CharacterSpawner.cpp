@@ -32,9 +32,18 @@ void ACharacterSpawner::SpawnEnemyCharacter() const
 	const FRotator Rotation = GetActorRotation();
 	const FVector Location = GetActorLocation();
 
-	AEnemyCharacter TestingC;
+	FActorSpawnParameters Parameters;
+	Parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	if (UWorld* World = GetWorld())
+	{
+		World->SpawnActor<AEnemyCharacter>(Enemy, Location, Rotation, Parameters);	
+	}
+	else
+	{
+		UE_LOG(LogTemp, Display, TEXT("GetWorld() return nullptr"));
+	}
 	
-	GetWorld()->SpawnActor<AEnemyCharacter>(Location, Rotation);
 	
 }
 

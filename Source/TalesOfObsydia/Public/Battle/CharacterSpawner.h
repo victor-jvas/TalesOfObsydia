@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "CharacterSpawner.generated.h"
 
+class AEnemyCharacter;
 class UBoxComponent;
 
 UCLASS()
@@ -17,12 +18,18 @@ public:
 	
 	ACharacterSpawner();
 
+	UFUNCTION()
 	void SpawnPlayerCharacter() const;
+	
+	UFUNCTION(BlueprintCallable)
 	void SpawnEnemyCharacter() const;
 
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UBoxComponent> SpawnVolume;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AEnemyCharacter> Enemy;
 
 };
