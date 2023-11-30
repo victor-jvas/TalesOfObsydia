@@ -7,7 +7,7 @@
 #include "BattleManager.generated.h"
 
 
-
+class ACharacterSpawner;
 
 UCLASS()
 class TALESOFOBSYDIA_API ABattleManager : public AActor
@@ -23,9 +23,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
-	TArray<TObjectPtr<UObject>> PartySpawnPoint;
+	TArray<TObjectPtr<ACharacterSpawner>> PartySpawnPoint;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
-	TArray<TObjectPtr<UObject>> EnemySpawnPoint;
+	TArray<TObjectPtr<ACharacterSpawner>> EnemySpawnPoint;
 
 	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
 	virtual void SpawnParty();

@@ -4,6 +4,7 @@
 #include "Battle/BattleManager.h"
 
 
+#include "Battle/CharacterSpawner.h"
 #include "Characters/PlayerCharacter.h"
 
 
@@ -27,15 +28,11 @@ void ABattleManager::BeginPlay()
 
 void ABattleManager::SpawnParty()
 {
-	for (UObject* SpawnPoint : PartySpawnPoint)
+	checkf(!PartySpawnPoint.IsEmpty(), TEXT("Set the Spawn Points in Editor/BP"))
+	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
+	
 	{
-		const AActor* Point = Cast<AActor>(SpawnPoint);
-
-		FRotator Rotation = Point->GetActorRotation();
-		FVector Location = Point->GetActorLocation();
-
-		GetWorld()->SpawnActor<APlayerCharacter>(Location, Rotation);
-		
+		SpawnPoint->SpawnEnemyCharacter();
 	}
 }
 
