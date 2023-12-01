@@ -20,7 +20,7 @@ void ABattleManager::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SpawnParty();
+	SpawnCombatants();
 	
 	
 }
@@ -32,7 +32,35 @@ void ABattleManager::SpawnParty()
 	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
 	
 	{
+		SpawnPoint->SpawnPlayerCharacter();
+	}
+}
+
+void ABattleManager::SpawnEnemy()
+{
+	checkf(!PartySpawnPoint.IsEmpty(), TEXT("Set the Spawn Points in Editor/BP"))
+	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
+	
+	{
 		SpawnPoint->SpawnEnemyCharacter();
+	}
+}
+
+void ABattleManager::SpawnCombatants()
+{
+	checkf(!PartySpawnPoint.IsEmpty(), TEXT("Set the Party Spawn Points in Editor/BP"))
+	checkf(!EnemySpawnPoint.IsEmpty(), TEXT("Set the Enemy Spawn Points in Editor/BP"))
+
+	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
+	
+	{
+		SpawnPoint->SpawnCharacter();
+	}
+
+	for (const ACharacterSpawner* SpawnPoint : EnemySpawnPoint)
+	
+	{
+		SpawnPoint->SpawnCharacter();
 	}
 }
 

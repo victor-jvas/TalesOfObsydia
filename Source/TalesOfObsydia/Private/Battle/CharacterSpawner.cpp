@@ -18,12 +18,32 @@ ACharacterSpawner::ACharacterSpawner()
 
 }
 
+void ACharacterSpawner::SpawnCharacter() const
+{
+	
+	if (PlayerClass)
+	{
+		SpawnPlayerCharacter();
+	}
+	else
+	{
+		SpawnEnemyCharacter();
+	}
+}
+
+
+
 void ACharacterSpawner::SpawnPlayerCharacter() const
 {
 	const FRotator Rotation = GetActorRotation();
 	const FVector Location = GetActorLocation();
 
-	GetWorld()->SpawnActor<APlayerCharacter>(Location, Rotation);
+	FActorSpawnParameters Parameters;
+	Parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	
+
+	
+	GetWorld()->SpawnActor<APlayerCharacter>(PlayerClass, Location, Rotation, Parameters);
 	
 }
 
@@ -37,7 +57,7 @@ void ACharacterSpawner::SpawnEnemyCharacter() const
 
 	if (UWorld* World = GetWorld())
 	{
-		World->SpawnActor<AEnemyCharacter>(Enemy, Location, Rotation, Parameters);	
+		World->SpawnActor<AEnemyCharacter>(EnemyClass, Location, Rotation, Parameters);	
 	}
 	else
 	{

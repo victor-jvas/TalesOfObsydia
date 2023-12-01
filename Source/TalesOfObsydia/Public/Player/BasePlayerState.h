@@ -28,6 +28,7 @@ public:
 	TObjectPtr<UAttributeSet> GetAttributeSet() const{ return AttributeSet;	}
 
 
+
 protected:
 
 	

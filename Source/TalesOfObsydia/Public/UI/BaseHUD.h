@@ -36,7 +36,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UBaseUserWidget> WidgetClass;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY()
 	TObjectPtr<UOverlayWidgetController> WidgetController;
 
 	UPROPERTY(EditAnywhere)

@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "CharacterSpawner.generated.h"
 
+class ABaseCharacter;
+class APlayerCharacter;
 class AEnemyCharacter;
 class UBoxComponent;
 
@@ -18,7 +20,11 @@ public:
 	
 	ACharacterSpawner();
 
-	UFUNCTION()
+	
+	UFUNCTION(BlueprintCallable)
+	void SpawnCharacter() const;
+
+	UFUNCTION(BlueprintCallable)
 	void SpawnPlayerCharacter() const;
 	
 	UFUNCTION(BlueprintCallable)
@@ -30,6 +36,8 @@ protected:
 	TObjectPtr<UBoxComponent> SpawnVolume;
 
 	UPROPERTY(EditAnywhere)
-	TSubclassOf<AEnemyCharacter> Enemy;
+	TSubclassOf<APlayerCharacter> PlayerClass;
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AEnemyCharacter> EnemyClass;
 };

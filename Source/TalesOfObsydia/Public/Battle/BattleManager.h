@@ -29,6 +29,10 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
 	virtual void SpawnParty();
+	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
+	virtual void SpawnEnemy();
+	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
+	virtual void SpawnCombatants();
 
 public:	
 	

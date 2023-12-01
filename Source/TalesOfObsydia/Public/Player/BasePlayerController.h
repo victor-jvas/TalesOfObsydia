@@ -26,6 +26,7 @@ protected:
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 	virtual void SetupInputComponent() override;
+
 	
 private:
 
