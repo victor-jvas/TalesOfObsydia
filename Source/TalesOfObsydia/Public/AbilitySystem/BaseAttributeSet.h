@@ -31,27 +31,54 @@ protected:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 public:
+
+
+	// Primary Attributes
+
+	UPROPERTY(ReplicatedUsing = OnRep_Speed, BlueprintReadOnly, Category = "Attribute | Primary")
+	FGameplayAttributeData Vigor;
+	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Vigor)
+
+	UPROPERTY(ReplicatedUsing = OnRep_Spirit, BlueprintReadOnly, Category = "Attribute | Primary")
+	FGameplayAttributeData Spirit;
+	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Spirit)
+
+	UPROPERTY(ReplicatedUsing = OnRep_Agility, BlueprintReadOnly, Category = "Attribute | Primary")
+	FGameplayAttributeData Agility;
+	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Agility)
+
+	// Secondary Attributes
 	
-	UPROPERTY(ReplicatedUsing = OnRep_Health, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_Health, BlueprintReadOnly, Category = "Attribute | Secondary")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Health)
 
-	UPROPERTY(ReplicatedUsing = OnRep_MaxHealth, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_MaxHealth, BlueprintReadOnly, Category = "Attribute | Secondary")
 	FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, MaxHealth)
 	
-	UPROPERTY(ReplicatedUsing = OnRep_Mana, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_Mana, BlueprintReadOnly, Category = "Attribute | Secondary")
 	FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Mana)
 
-	UPROPERTY(ReplicatedUsing = OnRep_MaxMana, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_MaxMana, BlueprintReadOnly, Category = "Attribute | Secondary")
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, MaxMana)
 
-	UPROPERTY(ReplicatedUsing = OnRep_Speed, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_Speed, BlueprintReadOnly, Category = "Attribute | Secondary")
 	FGameplayAttributeData Speed;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Speed)
 
+
+
+	// Replication Notifier Functions
+	
+	UFUNCTION()
+	void OnRep_Vigor(const FGameplayAttributeData& OldVigor) const;
+	UFUNCTION()
+	void OnRep_Spirit(const FGameplayAttributeData& OldSpirit) const;
+	UFUNCTION()
+	void OnRep_Agility(const FGameplayAttributeData& OldAgility) const;
 	UFUNCTION()
 	void OnRep_Health(const FGameplayAttributeData& OldHealth) const;
 	UFUNCTION()
@@ -62,5 +89,6 @@ public:
 	void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
 	UFUNCTION()
 	void OnRep_Speed(const FGameplayAttributeData& OldSpeed) const;
+
 	
 };

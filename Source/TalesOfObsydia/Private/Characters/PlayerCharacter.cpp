@@ -35,7 +35,7 @@ void APlayerCharacter::PossessedBy(AController* NewController)
 	//Set the owner and avatar for the ASC in the server
 	InitAbilitySystemInfo();
 	AddCharacterAbilities();
-	SetDefaultAttributes();
+	
 }
 
 void APlayerCharacter::OnRep_PlayerState()
@@ -45,7 +45,7 @@ void APlayerCharacter::OnRep_PlayerState()
 	//Set the owner and avatar for the ASC in the client
 	InitAbilitySystemInfo();
 	AddCharacterAbilities();
-	SetDefaultAttributes();
+	
 }
 
 void APlayerCharacter::InitAbilitySystemInfo()
@@ -64,7 +64,8 @@ void APlayerCharacter::InitAbilitySystemInfo()
 			BaseHUD->InitOverlay(NewController, PS, AbilitySystemComponent, AttributeSet);
 			
 		}
-			
 	}
+
+	SetDefaultAttributes();
 	
 }

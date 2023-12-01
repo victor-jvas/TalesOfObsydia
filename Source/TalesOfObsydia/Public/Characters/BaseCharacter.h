@@ -32,18 +32,24 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void AddCharacterAbilities();
 	virtual void SetDefaultAttributes();
+	virtual void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> EffectClass, float Level);
 
 	UPROPERTY(VisibleAnywhere, Category = "GAS|Abilities")
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+
+		
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
+	TArray<TSubclassOf<UGameplayAbility>> CharacterAbilities;
 	
 	UPROPERTY(VisibleAnywhere, Category = "GAS|Attributes")
 	TObjectPtr<UAttributeSet> AttributeSet;
 	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
-	TSubclassOf<UGameplayEffect> InitAttributeEffect;
-	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Abilities")
-	TArray<TSubclassOf<UGameplayAbility>> CharacterAbilities;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Attributes")
+	TSubclassOf<UGameplayEffect> InitPrimaryAttributesEffect;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Attributes")
+	TSubclassOf<UGameplayEffect> InitSecondaryAttributesEffect;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS|Tags")
 	FGameplayTagContainer DefaultTags;

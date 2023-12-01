@@ -40,8 +40,16 @@ void ABaseCharacter::AddCharacterAbilities()
 
 void ABaseCharacter::SetDefaultAttributes()
 {
+	ApplyEffectToSelf(InitPrimaryAttributesEffect, 1.f);
+	ApplyEffectToSelf(InitSecondaryAttributesEffect, 1.f);
+}
+
+void ABaseCharacter::ApplyEffectToSelf(const TSubclassOf<UGameplayEffect> EffectClass, const float Level)
+{
+	check(IsValid(GetAbilitySystemComponent()));
+	check(EffectClass);
 	const FGameplayEffectContextHandle EffectContext = GetAbilitySystemComponent()->MakeEffectContext();
-	const FGameplayEffectSpecHandle EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(InitAttributeEffect, 1, EffectContext);
+	const FGameplayEffectSpecHandle EffectSpec = GetAbilitySystemComponent()->MakeOutgoingSpec(EffectClass, Level, EffectContext);
 	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*EffectSpec.Data.Get(), GetAbilitySystemComponent());
 }
 
