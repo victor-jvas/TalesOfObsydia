@@ -9,10 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/BaseAttributeSet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/BaseAttributeSet.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/AbilitySystem/BaseAttributeSet.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/AbilitySystem/BaseAttributeSet.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +149,7 @@
       <workItem from="1701103926196" duration="16705000" />
       <workItem from="1701174688495" duration="7384000" />
       <workItem from="1701263090500" duration="10682000" />
-      <workItem from="1701434858409" duration="12835000" />
+      <workItem from="1701434858409" duration="13827000" />
     </task>
     <servers />
   </component>

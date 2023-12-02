@@ -49,6 +49,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Attributes")
 	TSubclassOf<UGameplayEffect> InitSecondaryAttributesEffect;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Attributes")
+	TSubclassOf<UGameplayEffect> InitVitalAttributesEffect;
 
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS|Tags")
