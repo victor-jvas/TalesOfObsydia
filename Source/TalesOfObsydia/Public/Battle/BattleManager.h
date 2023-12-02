@@ -21,6 +21,7 @@ public:
 
 protected:
 	
+	
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
@@ -28,18 +29,30 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
 	TArray<TObjectPtr<ACharacterSpawner>> EnemySpawnPoint;
 
+	// Pre-Battle
 	
-
-	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
-	virtual void SpawnParty();
-	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
-	virtual void SpawnEnemy();
-	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
+	UFUNCTION(BlueprintCallable, Category = "Combat|Pre-Battle")
 	virtual void SpawnCombatants();
+
+	void BindSpawnEvents();
 	
+	// Battle
+	
+	UFUNCTION()
+	void AddToCombat(ABaseCharacter* CharacterToAdd);
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat|Battle")
+	TArray<TObjectPtr<ABaseCharacter>> TurnOrder;
 
 	UFUNCTION()
-	void AddToCombat(ABaseCharacter* CharacterToAdd); 
+	void StartTurn(ABaseCharacter* CurrentCharacter);
+	UFUNCTION()
+	void BeginCombat();
+	
+
+	
+
+	
 	
 	
 };

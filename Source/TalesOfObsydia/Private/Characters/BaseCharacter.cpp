@@ -54,5 +54,10 @@ void ABaseCharacter::ApplyEffectToSelf(const TSubclassOf<UGameplayEffect> Effect
 	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*EffectSpec.Data.Get(), GetAbilitySystemComponent());
 }
 
+void ABaseCharacter::InitTurn()
+{
+	UE_LOG(LogTemp, Display, TEXT("InitTurn Called on Base Character"));
+}
+
 
 

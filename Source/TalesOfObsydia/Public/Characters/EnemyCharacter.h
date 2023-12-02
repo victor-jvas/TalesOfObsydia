@@ -21,6 +21,8 @@ public:
 
 	AEnemyCharacter();
 
+	virtual void InitTurn() override;
+
 protected:
 
 	virtual void BeginPlay() override;

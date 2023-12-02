@@ -48,6 +48,11 @@ void APlayerCharacter::OnRep_PlayerState()
 	
 }
 
+void APlayerCharacter::InitTurn()
+{
+	GetController()->Possess(this);
+}
+
 void APlayerCharacter::InitAbilitySystemInfo()
 {
 	ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());

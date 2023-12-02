@@ -5,6 +5,7 @@
 
 
 #include "Battle/CharacterSpawner.h"
+#include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
 
 
@@ -15,11 +16,8 @@ ABattleManager::ABattleManager()
 
 }
 
-
-void ABattleManager::BeginPlay()
+void ABattleManager::BindSpawnEvents()
 {
-	Super::BeginPlay();
-
 	for (const auto SpawnPoint : PartySpawnPoint)
 	{
 		SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
@@ -29,30 +27,17 @@ void ABattleManager::BeginPlay()
 	{
 		SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
 	}
+}
+
+void ABattleManager::BeginPlay()
+{
+	Super::BeginPlay();
+
+	BindSpawnEvents();
 
 	SpawnCombatants();
+	BeginCombat();
 	
-}
-
-
-void ABattleManager::SpawnParty()
-{
-	checkf(!PartySpawnPoint.IsEmpty(), TEXT("Set the Spawn Points in Editor/BP"))
-	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
-	
-	{
-		SpawnPoint->SpawnPlayerCharacter();
-	}
-}
-
-void ABattleManager::SpawnEnemy()
-{
-	checkf(!PartySpawnPoint.IsEmpty(), TEXT("Set the Spawn Points in Editor/BP"))
-	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
-	
-	{
-		SpawnPoint->SpawnEnemyCharacter();
-	}
 }
 
 void ABattleManager::SpawnCombatants()
@@ -75,7 +60,22 @@ void ABattleManager::SpawnCombatants()
 
 void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)
 {
+	UE_LOG(LogTemp, Display, TEXT("Character Spawned and Delegate Fired"));
 
-	GEngine->AddOnScreenDebugMessage(0, 2.f, FColor::Orange, TEXT("Character Spawned and Delegate called"));
+	TurnOrder.Add(CharacterToAdd);
+}
+
+void ABattleManager::StartTurn(ABaseCharacter* CurrentCharacter)
+{
+	CurrentCharacter->InitTurn();
+}
+
+void ABattleManager::BeginCombat()
+{
+	for (int32 Position = 0; Position < TurnOrder.Num(); Position++)
+	{
+		StartTurn(TurnOrder[Position]);	
+	}
+	
 }
 

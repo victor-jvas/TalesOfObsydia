@@ -56,5 +56,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS|Tags")
 	FGameplayTagContainer DefaultTags;
+
+public:
 	
+	UFUNCTION()
+	virtual void InitTurn();
 };

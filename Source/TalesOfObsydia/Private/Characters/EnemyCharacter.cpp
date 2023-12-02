@@ -9,6 +9,7 @@
 #include "Components/SphereComponent.h"
 
 
+
 AEnemyCharacter::AEnemyCharacter()
 {
 
@@ -23,6 +24,12 @@ AEnemyCharacter::AEnemyCharacter()
 	CollisionSphere = CreateDefaultSubobject<USphereComponent>("Collision Sphere");
 	CollisionSphere->SetVisibility(true);
 	CollisionSphere->SetSphereRadius(50.f);
+	
+}
+
+void AEnemyCharacter::InitTurn()
+{
+	UE_LOG(LogTemp, Display, TEXT("Entering Enemy Turn"));
 	
 }
 
