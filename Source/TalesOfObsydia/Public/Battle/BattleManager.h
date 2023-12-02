@@ -7,6 +7,7 @@
 #include "BattleManager.generated.h"
 
 
+class ABaseCharacter;
 class ACharacterSpawner;
 
 UCLASS()
@@ -27,17 +28,18 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
 	TArray<TObjectPtr<ACharacterSpawner>> EnemySpawnPoint;
 
+	
+
 	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
 	virtual void SpawnParty();
 	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
 	virtual void SpawnEnemy();
 	UFUNCTION(BlueprintCallable, Category = "Pre-Battle")
 	virtual void SpawnCombatants();
-
-public:	
-	
-	virtual void Tick(float DeltaTime) override;
 	
 
+	UFUNCTION()
+	void AddToCombat(ABaseCharacter* CharacterToAdd); 
+	
 	
 };

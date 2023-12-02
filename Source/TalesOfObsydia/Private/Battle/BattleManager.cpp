@@ -20,8 +20,17 @@ void ABattleManager::BeginPlay()
 {
 	Super::BeginPlay();
 
+	for (const auto SpawnPoint : PartySpawnPoint)
+	{
+		SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
+	}
+
+	for (const auto SpawnPoint : EnemySpawnPoint)
+	{
+		SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
+	}
+
 	SpawnCombatants();
-	
 	
 }
 
@@ -64,9 +73,9 @@ void ABattleManager::SpawnCombatants()
 	}
 }
 
-void ABattleManager::Tick(float DeltaTime)
+void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)
 {
-	Super::Tick(DeltaTime);
 
+	GEngine->AddOnScreenDebugMessage(0, 2.f, FColor::Orange, TEXT("Character Spawned and Delegate called"));
 }
 

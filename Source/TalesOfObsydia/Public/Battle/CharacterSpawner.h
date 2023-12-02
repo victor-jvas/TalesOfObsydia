@@ -11,6 +11,8 @@ class APlayerCharacter;
 class AEnemyCharacter;
 class UBoxComponent;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterSpawnedSignature, ABaseCharacter*, Character);
+
 UCLASS()
 class TALESOFOBSYDIA_API ACharacterSpawner : public AActor
 {
@@ -29,6 +31,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void SpawnEnemyCharacter() const;
+
+	UPROPERTY(BlueprintCallable)
+	FOnCharacterSpawnedSignature OnCharacterSpawnedDelegate;
 
 protected:
 

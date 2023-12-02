@@ -9,6 +9,7 @@
 #include "Components/BoxComponent.h"
 
 
+
 ACharacterSpawner::ACharacterSpawner()
 {
  	RootComponent = CreateDefaultSubobject<USceneComponent>("DefaultSceneRoot");
@@ -32,7 +33,6 @@ void ACharacterSpawner::SpawnCharacter() const
 }
 
 
-
 void ACharacterSpawner::SpawnPlayerCharacter() const
 {
 	const FRotator Rotation = GetActorRotation();
@@ -40,10 +40,10 @@ void ACharacterSpawner::SpawnPlayerCharacter() const
 
 	FActorSpawnParameters Parameters;
 	Parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-	
 
-	
-	GetWorld()->SpawnActor<APlayerCharacter>(PlayerClass, Location, Rotation, Parameters);
+
+	const auto Char = GetWorld()->SpawnActor<APlayerCharacter>(PlayerClass, Location, Rotation, Parameters);
+	OnCharacterSpawnedDelegate.Broadcast(Char);
 	
 }
 
@@ -57,7 +57,8 @@ void ACharacterSpawner::SpawnEnemyCharacter() const
 
 	if (UWorld* World = GetWorld())
 	{
-		World->SpawnActor<AEnemyCharacter>(EnemyClass, Location, Rotation, Parameters);	
+		const auto Char = World->SpawnActor<AEnemyCharacter>(EnemyClass, Location, Rotation, Parameters);
+		OnCharacterSpawnedDelegate.Broadcast(Char);
 	}
 	else
 	{
