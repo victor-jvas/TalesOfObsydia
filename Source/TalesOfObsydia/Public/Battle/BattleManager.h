@@ -41,7 +41,7 @@ protected:
 	UFUNCTION()
 	void AddToCombat(ABaseCharacter* CharacterToAdd);
 
-	UPROPERTY(VisibleAnywhere, Category = "Combat|Battle")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat|Battle")
 	TArray<TObjectPtr<ABaseCharacter>> TurnOrder;
 
 	UFUNCTION()

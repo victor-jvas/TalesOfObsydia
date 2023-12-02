@@ -13,5 +13,7 @@ UCLASS()
 class TALESOFOBSYDIA_API ASelenCharacter : public APlayerCharacter
 {
 	GENERATED_BODY()
+
+	virtual void BeginPlay() override;
 	
 };

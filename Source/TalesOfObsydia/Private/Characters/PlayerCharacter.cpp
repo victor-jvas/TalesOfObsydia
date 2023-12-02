@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Logging/StructuredLog.h"
 #include "Player/BasePlayerController.h"
 #include "Player/BasePlayerState.h"
 #include "UI/BaseHUD.h"
@@ -50,7 +51,13 @@ void APlayerCharacter::OnRep_PlayerState()
 
 void APlayerCharacter::InitTurn()
 {
-	GetController()->Possess(this);
+	UE_LOG(LogTemp, Display, TEXT("InitTurn Called on Player"));
+	if(IsPawnControlled())
+	{
+		UE_LOGFMT(LogTemp, Warning, "Is Pawn Controlled: {0}", GetController()->GetName());
+	}
+	
+		
 }
 
 void APlayerCharacter::InitAbilitySystemInfo()

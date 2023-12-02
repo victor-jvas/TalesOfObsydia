@@ -3,3 +3,8 @@
 
 #include "Characters/SelenCharacter.h"
 
+void ASelenCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+}
+

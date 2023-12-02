@@ -7,7 +7,7 @@
 #include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
 #include "Components/BoxComponent.h"
-
+#include "Player/BasePlayerState.h"
 
 
 ACharacterSpawner::ACharacterSpawner()
@@ -39,11 +39,15 @@ void ACharacterSpawner::SpawnPlayerCharacter() const
 	const FVector Location = GetActorLocation();
 
 	FActorSpawnParameters Parameters;
-	Parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	Parameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
 
 	const auto Char = GetWorld()->SpawnActor<APlayerCharacter>(PlayerClass, Location, Rotation, Parameters);
 	OnCharacterSpawnedDelegate.Broadcast(Char);
+
+	GetWorld()->GetFirstPlayerController()->Possess(Char);
+	
+	
 	
 }
 

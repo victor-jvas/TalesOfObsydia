@@ -34,9 +34,8 @@ void ABattleManager::BeginPlay()
 	Super::BeginPlay();
 
 	BindSpawnEvents();
-
-	SpawnCombatants();
-	BeginCombat();
+	//SpawnCombatants();
+	//BeginCombat();
 	
 }
 
@@ -68,6 +67,8 @@ void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)
 void ABattleManager::StartTurn(ABaseCharacter* CurrentCharacter)
 {
 	CurrentCharacter->InitTurn();
+
+	
 }
 
 void ABattleManager::BeginCombat()
