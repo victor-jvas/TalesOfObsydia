@@ -31,7 +31,7 @@ protected:
 
 	// Pre-Battle
 	
-	UFUNCTION(BlueprintCallable, Category = "Combat|Pre-Battle")
+	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
 	virtual void SpawnCombatants();
 
 	void BindSpawnEvents();
@@ -41,7 +41,7 @@ protected:
 	UFUNCTION()
 	void AddToCombat(ABaseCharacter* CharacterToAdd);
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat|Battle")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<ABaseCharacter>> TurnOrder;
 
 	UFUNCTION()

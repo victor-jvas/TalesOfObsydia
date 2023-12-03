@@ -5,7 +5,6 @@
 
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
-#include "AbilitySystem/BaseGameplayAbility.h"
 #include "Characters/PlayerCharacter.h"
 #include "Player/BasePlayerController.h"
 
@@ -17,15 +16,15 @@ ABasePlayerState::ABasePlayerState()
 	NetUpdateFrequency = 100.f;
 }
 
-//return AbilitySystemComponent;
+//return AbilitySystemComponent of the current character;
 UAbilitySystemComponent* ABasePlayerState::GetAbilitySystemComponent() const
 {
-	//Some weird crash here, handle and private, something like that
+	
 	const ABasePlayerController* Controller = Cast<ABasePlayerController>(GetPlayerController());
 	APlayerCharacter*  ControlledCharacter = Cast<APlayerCharacter>(Controller->GetCharacter());
 	
 	return CheckForASC(Cast<const APlayerCharacter>(ControlledCharacter));
-	return nullptr;
+
 }
 
 

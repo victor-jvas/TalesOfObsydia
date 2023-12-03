@@ -13,5 +13,6 @@ UCLASS()
 class TALESOFOBSYDIA_API ADefaultGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
+
 	
 };

@@ -64,11 +64,11 @@ void APlayerCharacter::InitTurn()
 void APlayerCharacter::InitAbilitySystemInfo()
 {
 	ABasePlayerState* PS = Cast<ABasePlayerState>(UGameplayStatics::GetPlayerState(GetWorld(), 0));
-	//ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
+	
 	check(PS);
-	//PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+	
 	AbilitySystemComponent = PS->GetOrCreateASCForCharacter(this);
-	//AbilitySystemComponent = PS->GetAbilitySystemComponent();
+	
 	AttributeSet = PS->GetAttributeSet();
 	
 

@@ -34,7 +34,7 @@ void ABattleManager::BeginPlay()
 	Super::BeginPlay();
 
 	BindSpawnEvents();
-	//SpawnCombatants();
+	SpawnCombatants();
 	//BeginCombat();
 	
 }

@@ -37,8 +37,6 @@ void ABaseHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySyst
 	
 	
 	Widget->AddToViewport();
-	FInputModeUIOnly UIOnly;
-
-	PC->SetInputMode(UIOnly);
+	
 	
 }
