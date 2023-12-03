@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Logging/StructuredLog.h"
 #include "Player/BasePlayerController.h"
 #include "Player/BasePlayerState.h"
@@ -62,9 +63,11 @@ void APlayerCharacter::InitTurn()
 
 void APlayerCharacter::InitAbilitySystemInfo()
 {
-	ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
+	ABasePlayerState* PS = Cast<ABasePlayerState>(UGameplayStatics::GetPlayerState(GetWorld(), 0));
+	//ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
 	check(PS);
-	PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+	//PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+	PS->GetOrCreateASCForCharacter(this);
 	AbilitySystemComponent = PS->GetAbilitySystemComponent();
 	AttributeSet = PS->GetAttributeSet();
 	

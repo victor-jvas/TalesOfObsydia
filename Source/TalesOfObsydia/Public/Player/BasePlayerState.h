@@ -26,11 +26,12 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	
-	void AddCharacterAbilities();
 
 	TObjectPtr<UAttributeSet> GetAttributeSet() const{ return AttributeSet;	}
 
 	UBaseAbilitySystemComponent* GetOrCreateASCForCharacter(APlayerCharacter* Character);
+
+	UBaseAbilitySystemComponent* CheckForASC(const APlayerCharacter* Character) const;
 
 
 

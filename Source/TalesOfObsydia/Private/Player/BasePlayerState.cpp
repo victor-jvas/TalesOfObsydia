@@ -16,20 +16,37 @@ ABasePlayerState::ABasePlayerState()
 	NetUpdateFrequency = 100.f;
 }
 
+//return AbilitySystemComponent;
 UAbilitySystemComponent* ABasePlayerState::GetAbilitySystemComponent() const
 {
-	//return AbilitySystemComponent;
+	
+	const APlayerCharacter* PC = Cast<APlayerCharacter>(GetInstigatorController()->GetCharacter());
+	return CheckForASC(PC);
+	return nullptr;
 }
 
-void ABasePlayerState::AddCharacterAbilities()
-{
-}
+
 
 // Function to get or create an Ability System Component for a character
 UBaseAbilitySystemComponent* ABasePlayerState::GetOrCreateASCForCharacter(APlayerCharacter* Character)
 {
+	UBaseAbilitySystemComponent* ASC = CheckForASC(Character);
+	if (ASC)
+	{
+		return ASC;
+	}
+	//If ASC is nullptr, create a new one for the Character
+	ASC = NewObject<UBaseAbilitySystemComponent>(this);
+	ASC->InitAbilityActorInfo(this, Character);
+	AbilitySystemComponents.Add(ASC);
 
-	//Check if the ASC already exist
+
+	return ASC;
+}
+
+//Check if the ASC already exist on player and return it, if not return null
+UBaseAbilitySystemComponent* ABasePlayerState::CheckForASC(const APlayerCharacter* Character) const
+{
 	for (UBaseAbilitySystemComponent* ASC : AbilitySystemComponents)
 	{
 		if (Cast<APlayerCharacter>(ASC->GetAvatarActor()) == Character)
@@ -37,13 +54,12 @@ UBaseAbilitySystemComponent* ABasePlayerState::GetOrCreateASCForCharacter(APlaye
 			return ASC;
 		}
 	}
-	//If not, create a new one for the Character
-	UBaseAbilitySystemComponent* NewASC = NewObject<UBaseAbilitySystemComponent>(this);
-	NewASC->InitAbilityActorInfo(this, Character);
-	AbilitySystemComponents.Add(NewASC);
-
-
 	return nullptr;
+}
+
+
+void ABasePlayerState::SwitchCharacter()
+{
 }
 
 
