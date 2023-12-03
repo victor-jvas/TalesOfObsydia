@@ -67,8 +67,8 @@ void APlayerCharacter::InitAbilitySystemInfo()
 	//ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
 	check(PS);
 	//PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
-	PS->GetOrCreateASCForCharacter(this);
-	AbilitySystemComponent = PS->GetAbilitySystemComponent();
+	AbilitySystemComponent = PS->GetOrCreateASCForCharacter(this);
+	//AbilitySystemComponent = PS->GetAbilitySystemComponent();
 	AttributeSet = PS->GetAttributeSet();
 	
 

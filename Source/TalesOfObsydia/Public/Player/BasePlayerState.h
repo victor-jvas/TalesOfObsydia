@@ -26,12 +26,11 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	
-
 	TObjectPtr<UAttributeSet> GetAttributeSet() const{ return AttributeSet;	}
 
-	UBaseAbilitySystemComponent* GetOrCreateASCForCharacter(APlayerCharacter* Character);
+	UAbilitySystemComponent* GetOrCreateASCForCharacter(APlayerCharacter* Character);
 
-	UBaseAbilitySystemComponent* CheckForASC(const APlayerCharacter* Character) const;
+	UAbilitySystemComponent* CheckForASC(const APlayerCharacter* Character) const;
 
 
 
@@ -41,7 +40,7 @@ protected:
 	// Gameplay Ability System
 	
 	UPROPERTY(VisibleAnywhere, Category = "Gameplay Ability System|Abilities")
-	TArray<TObjectPtr<UBaseAbilitySystemComponent>> AbilitySystemComponents;
+	TArray<TObjectPtr<UAbilitySystemComponent>> AbilitySystemComponents;
 	
 	UPROPERTY(VisibleAnywhere, Category = "Gameplay Ability Sytem|Attributes")
 	TObjectPtr<UAttributeSet> AttributeSet;
