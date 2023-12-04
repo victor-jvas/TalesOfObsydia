@@ -26,17 +26,7 @@ public:
 	TSubclassOf<ABaseCharacter> GetClassToSpawn() const{return ClassToSpawn;}
 	UFUNCTION(BlueprintCallable)
 	void SetClassToSpawn(const TSubclassOf<ABaseCharacter>& CharacterClass){this->ClassToSpawn = ClassToSpawn;}
-
 	
-	UFUNCTION(BlueprintCallable)
-	void SpawnCharacter() const;
-
-	UFUNCTION(BlueprintCallable)
-	void SpawnPlayerCharacter() const;
-	
-	UFUNCTION(BlueprintCallable)
-	void SpawnEnemyCharacter() const;
-
 	UPROPERTY(BlueprintCallable)
 	FOnCharacterSpawnedSignature OnCharacterSpawnedDelegate;
 
@@ -44,12 +34,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UBoxComponent> SpawnVolume;
-
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<APlayerCharacter> PlayerClass;
-
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<AEnemyCharacter> EnemyClass;
 
 	UPROPERTY(EditAnywhere);
 	TSubclassOf<ABaseCharacter> ClassToSpawn;

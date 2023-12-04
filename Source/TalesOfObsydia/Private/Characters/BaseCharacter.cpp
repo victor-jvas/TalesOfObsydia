@@ -4,7 +4,7 @@
 #include "Characters/BaseCharacter.h"
 
 #include "AbilitySystemComponent.h"
-#include "AbilitySystem/BaseAbilitySystemComponent.h"
+
 
 
 ABaseCharacter::ABaseCharacter()

@@ -75,6 +75,14 @@ void ABattleManager::SpawnPlayerParty()
 	}
 }
 
+void ABattleManager::SpawnEnemies()
+{
+	for (const auto SpawnPoint : EnemySpawnPoint)
+	{
+		AEnemyCharacter* Enemy = GetWorld()->SpawnActor<AEnemyCharacter>(SpawnPoint->GetClassToSpawn(), SpawnPoint->GetActorLocation(), SpawnPoint->GetActorRotation());
+	}
+}
+
 void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)
 {
 	UE_LOG(LogTemp, Display, TEXT("Character Spawned and Delegate Fired"));

@@ -41,6 +41,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
 	virtual void SpawnPlayerParty();
+
+	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
+	virtual void SpawnEnemies();
 	
 
 	void BindSpawnEvents();
