@@ -51,13 +51,13 @@ void ABattleManager::SpawnCombatants()
 	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
 	
 	{
-		SpawnPoint->SpawnCharacter();
+		
 	}
 
 	for (const ACharacterSpawner* SpawnPoint : EnemySpawnPoint)
 	
 	{
-		SpawnPoint->SpawnCharacter();
+		
 	}
 }
 

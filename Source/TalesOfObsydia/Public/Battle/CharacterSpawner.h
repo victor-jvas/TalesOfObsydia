@@ -24,6 +24,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	TSubclassOf<ABaseCharacter> GetClassToSpawn() const{return ClassToSpawn;}
+	
 	UFUNCTION(BlueprintCallable)
 	void SetClassToSpawn(const TSubclassOf<ABaseCharacter>& CharacterClass){this->ClassToSpawn = ClassToSpawn;}
 	
