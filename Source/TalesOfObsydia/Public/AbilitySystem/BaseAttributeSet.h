@@ -69,6 +69,10 @@ public:
 	FGameplayAttributeData Speed;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Speed)
 
+	UPROPERTY(ReplicatedUsing = OnRep_ATBProgress, BlueprintReadOnly, Category = "Attribute | Secondary")
+	FGameplayAttributeData ATBProgress;
+	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, ATBProgress)
+
 
 
 	// Replication Notifier Functions
@@ -89,6 +93,8 @@ public:
 	void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
 	UFUNCTION()
 	void OnRep_Speed(const FGameplayAttributeData& OldSpeed) const;
+	UFUNCTION()
+	void OnRep_ATBProgress(const FGameplayAttributeData& OldATBProgress) const;
 
 	
 };

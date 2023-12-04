@@ -7,6 +7,8 @@
 #include "BattleManager.generated.h"
 
 
+class AEnemyCharacter;
+class APlayerCharacter;
 class ABaseCharacter;
 class ACharacterSpawner;
 
@@ -33,6 +35,12 @@ protected:
 	TArray<TObjectPtr<ACharacterSpawner>> PartySpawnPoint;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
 	TArray<TObjectPtr<ACharacterSpawner>> EnemySpawnPoint;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
+	TArray<TObjectPtr<APlayerCharacter>> PlayerParty;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
+	TArray<TObjectPtr<AEnemyCharacter>> EnemiesParty;
+	
 
 	// Pre-Battle
 	

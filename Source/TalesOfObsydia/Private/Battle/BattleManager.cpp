@@ -39,6 +39,7 @@ void ABattleManager::BeginPlay()
 	//BindSpawnEvents();
 	//SpawnCombatants();
 	SpawnPlayerParty();
+	SpawnEnemies();
 
 	
 }
@@ -66,6 +67,7 @@ void ABattleManager::SpawnPlayerParty()
 	for (const auto SpawnPoint : PartySpawnPoint)
 	{
 		APlayerCharacter* Char = GetWorld()->SpawnActor<APlayerCharacter>(SpawnPoint->GetClassToSpawn(), SpawnPoint->GetActorLocation(), SpawnPoint->GetActorRotation());
+		PlayerParty.Add(Char);
 
 		if (BattleController)
 		{
@@ -80,6 +82,7 @@ void ABattleManager::SpawnEnemies()
 	for (const auto SpawnPoint : EnemySpawnPoint)
 	{
 		AEnemyCharacter* Enemy = GetWorld()->SpawnActor<AEnemyCharacter>(SpawnPoint->GetClassToSpawn(), SpawnPoint->GetActorLocation(), SpawnPoint->GetActorRotation());
+		EnemiesParty.Add(Enemy);
 	}
 }
 
