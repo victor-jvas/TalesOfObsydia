@@ -7,12 +7,14 @@
 #include "Battle/CharacterSpawner.h"
 #include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
+#include "Kismet/GameplayStatics.h"
 
 
 ABattleManager::ABattleManager()
 {
  	
 	PrimaryActorTick.bCanEverTick = false;
+	
 
 }
 
@@ -32,10 +34,12 @@ void ABattleManager::BindSpawnEvents()
 void ABattleManager::BeginPlay()
 {
 	Super::BeginPlay();
+	BattleController = UGameplayStatics::GetPlayerController(this, 0);
 
-	BindSpawnEvents();
-	SpawnCombatants();
-	//BeginCombat();
+	//BindSpawnEvents();
+	//SpawnCombatants();
+	SpawnPlayerParty();
+
 	
 }
 
@@ -57,6 +61,20 @@ void ABattleManager::SpawnCombatants()
 	}
 }
 
+void ABattleManager::SpawnPlayerParty()
+{
+	for (const auto SpawnPoint : PartySpawnPoint)
+	{
+		APlayerCharacter* Char = GetWorld()->SpawnActor<APlayerCharacter>(SpawnPoint->GetClassToSpawn(), SpawnPoint->GetActorLocation(), SpawnPoint->GetActorRotation());
+
+		if (BattleController)
+		{
+			BattleController->Possess(Char);
+		}
+		
+	}
+}
+
 void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)
 {
 	UE_LOG(LogTemp, Display, TEXT("Character Spawned and Delegate Fired"));
@@ -64,19 +82,6 @@ void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)
 	TurnOrder.Add(CharacterToAdd);
 }
 
-void ABattleManager::StartTurn(ABaseCharacter* CurrentCharacter)
-{
-	CurrentCharacter->InitTurn();
 
-	
-}
 
-void ABattleManager::BeginCombat()
-{
-	for (int32 Position = 0; Position < TurnOrder.Num(); Position++)
-	{
-		StartTurn(TurnOrder[Position]);	
-	}
-	
-}
 

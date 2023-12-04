@@ -19,10 +19,15 @@ public:
 	
 	ABattleManager();
 
+	APlayerController* GetBattleController() const {return BattleController;}
+
 protected:
 	
 	
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<APlayerController> BattleController;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
 	TArray<TObjectPtr<ACharacterSpawner>> PartySpawnPoint;
@@ -34,6 +39,10 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
 	virtual void SpawnCombatants();
 
+	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
+	virtual void SpawnPlayerParty();
+	
+
 	void BindSpawnEvents();
 	
 	// Battle
@@ -43,11 +52,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<ABaseCharacter>> TurnOrder;
-
-	UFUNCTION()
-	void StartTurn(ABaseCharacter* CurrentCharacter);
-	UFUNCTION()
-	void BeginCombat();
 	
 
 	

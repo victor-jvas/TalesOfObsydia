@@ -48,7 +48,6 @@ void ACharacterSpawner::SpawnPlayerCharacter() const
 	GetWorld()->GetFirstPlayerController()->Possess(Char);
 	
 	
-	
 }
 
 void ACharacterSpawner::SpawnEnemyCharacter() const
@@ -63,10 +62,6 @@ void ACharacterSpawner::SpawnEnemyCharacter() const
 	{
 		const auto Char = World->SpawnActor<AEnemyCharacter>(EnemyClass, Location, Rotation, Parameters);
 		OnCharacterSpawnedDelegate.Broadcast(Char);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Display, TEXT("GetWorld() return nullptr"));
 	}
 	
 	
