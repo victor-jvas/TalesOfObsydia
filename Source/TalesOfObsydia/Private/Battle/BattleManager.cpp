@@ -5,6 +5,7 @@
 
 
 #include "AbilitySystemComponent.h"
+#include "Abilities/Async/AbilityAsync_WaitGameplayTag.h"
 #include "AbilitySystem/BaseAttributeSet.h"
 #include "Battle/CharacterSpawner.h"
 #include "Characters/EnemyCharacter.h"
@@ -45,7 +46,6 @@ void ABattleManager::BeginPlay()
 	SpawnEnemies();
 
 	StartActionBar();
-	
 
 	
 }
@@ -109,6 +109,7 @@ void ABattleManager::StartActionBar()
 			{
 				UE_LOG(LogTemp, Display, TEXT("ATB is full, ready to act"));
 				Player->ApplyEffectToSelf(TurnReadyEffect, 1);
+				Player->GetAbilitySystemComponent()->tag
 			}
 		});
 	
