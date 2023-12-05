@@ -2,9 +2,8 @@
 
 
 #include "Characters/BaseCharacter.h"
-
 #include "AbilitySystemComponent.h"
-
+#include "AbilitySystem/BaseAttributeSet.h"
 
 
 ABaseCharacter::ABaseCharacter()
@@ -55,6 +54,15 @@ void ABaseCharacter::ApplyEffectToSelf(const TSubclassOf<UGameplayEffect> Effect
 void ABaseCharacter::InitTurn()
 {
 	UE_LOG(LogTemp, Display, TEXT("InitTurn Called on Base Character"));
+}
+
+void ABaseCharacter::IsTurnReady()
+{
+	auto ATB = Cast<UBaseAttributeSet>(AttributeSet)->GetATBProgress();
+	if (ATB > MaxATB)
+	{
+		ApplyEffectToSelf(TurnReadyEffect, 1);
+	}
 }
 
 

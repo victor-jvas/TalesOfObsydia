@@ -4,16 +4,19 @@
 #include "Battle/BattleManager.h"
 
 
+#include "AbilitySystemComponent.h"
+#include "AbilitySystem/BaseAttributeSet.h"
 #include "Battle/CharacterSpawner.h"
 #include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
+#include "Characters/BaseCharacter.h"
 #include "Kismet/GameplayStatics.h"
 
 
 ABattleManager::ABattleManager()
 {
  	
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 	
 
 }
@@ -41,8 +44,13 @@ void ABattleManager::BeginPlay()
 	SpawnPlayerParty();
 	SpawnEnemies();
 
+	StartActionBar();
+	
+
 	
 }
+
+
 
 void ABattleManager::SpawnCombatants()
 {
@@ -84,6 +92,26 @@ void ABattleManager::SpawnEnemies()
 		AEnemyCharacter* Enemy = GetWorld()->SpawnActor<AEnemyCharacter>(SpawnPoint->GetClassToSpawn(), SpawnPoint->GetActorLocation(), SpawnPoint->GetActorRotation());
 		EnemiesParty.Add(Enemy);
 	}
+}
+
+void ABattleManager::StartActionBar()
+{
+	const auto Player = PlayerParty[0];
+
+	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(Player->GetAttributeSet());
+	Player->ApplyEffectToSelf(ActionBarEffect,1);
+	
+	Player->GetAbilitySystemComponent()->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetATBProgressAttribute()).AddLambda(
+		[Player, this](const FOnAttributeChangeData& Data)
+		{
+			UE_LOG(LogTemp, Display, TEXT("Biding and responding to attribute change"));
+			if (Data.NewValue > MaxATB)
+			{
+				UE_LOG(LogTemp, Display, TEXT("ATB is full, ready to act"));
+				Player->ApplyEffectToSelf(TurnReadyEffect, 1);
+			}
+		});
+	
 }
 
 void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)

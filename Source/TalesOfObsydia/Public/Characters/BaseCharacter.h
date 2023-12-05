@@ -26,13 +26,14 @@ public:
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	UAttributeSet* GetAttributeSet() const{	return AttributeSet; }
 
+	virtual void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> EffectClass, float Level);
 
 protected:
 	
 	virtual void BeginPlay() override;
 	virtual void AddCharacterAbilities();
 	virtual void SetDefaultAttributes();
-	virtual void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> EffectClass, float Level);
+	
 
 	UPROPERTY(VisibleAnywhere, Category = "GAS|Abilities")
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
@@ -52,6 +53,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Attributes")
 	TSubclassOf<UGameplayEffect> InitVitalAttributesEffect;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "GAS|Battle")
+	TSubclassOf<UGameplayEffect> TurnReadyEffect;
+
+	const int32 MaxATB = 255;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GAS|Tags")
 	FGameplayTagContainer DefaultTags;
@@ -60,4 +66,7 @@ public:
 	
 	UFUNCTION()
 	virtual void InitTurn();
+
+	UFUNCTION()
+	void IsTurnReady();
 };

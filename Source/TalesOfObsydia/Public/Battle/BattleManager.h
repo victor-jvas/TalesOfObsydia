@@ -3,10 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayEffect.h"
 #include "GameFramework/Actor.h"
+
 #include "BattleManager.generated.h"
 
 
+class UGameplayEffect;
 class AEnemyCharacter;
 class APlayerCharacter;
 class ABaseCharacter;
@@ -40,7 +43,15 @@ protected:
 	TArray<TObjectPtr<APlayerCharacter>> PlayerParty;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<AEnemyCharacter>> EnemiesParty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
+	TSubclassOf<UGameplayEffect> ActionBarEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
+	TSubclassOf<UGameplayEffect> TurnReadyEffect;
 	
+	const float MaxATB = 255;
+	
+
 
 	// Pre-Battle
 	
@@ -52,6 +63,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
 	virtual void SpawnEnemies();
+
+	virtual void StartActionBar();
+
 	
 
 	void BindSpawnEvents();

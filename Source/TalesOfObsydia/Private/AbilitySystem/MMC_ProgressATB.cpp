@@ -21,7 +21,7 @@ float UMMC_ProgressATB::CalculateBaseMagnitude_Implementation(const FGameplayEff
 	float Speed = 0.f;
 	GetCapturedAttributeMagnitude(SpeedDef, Spec, EvaluateParameters, Speed);
 
-	const auto DeltaTime = Spec.GetEffectContext().GetInstigator()->GetWorld()->GetDeltaSeconds();
-	return Speed*DeltaTime;
+	//const auto DeltaTime = Spec.GetEffectContext().GetInstigator()->GetWorld()->GetDeltaSeconds();
+	return Speed;
 	
 }
