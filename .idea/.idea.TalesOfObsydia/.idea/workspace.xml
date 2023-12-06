@@ -10,8 +10,13 @@
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/WidgetController/OverlayWidgetController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/WidgetController/OverlayWidgetController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/WidgetController/OverlayWidgetController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/WidgetController/OverlayWidgetController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/BaseHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/BaseHUD.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Battle/BattleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Battle/BattleManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/PlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/BaseHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/BaseHUD.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +158,8 @@
       <workItem from="1701617945434" duration="24083000" />
       <workItem from="1701712765083" duration="9366000" />
       <workItem from="1701732503352" duration="6041000" />
-      <workItem from="1701805835000" duration="5064000" />
+      <workItem from="1701805835000" duration="5665000" />
+      <workItem from="1701883414497" duration="2031000" />
     </task>
     <servers />
   </component>

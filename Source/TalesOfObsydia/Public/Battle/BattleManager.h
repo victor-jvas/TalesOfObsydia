@@ -25,6 +25,7 @@ public:
 	ABattleManager();
 
 	APlayerController* GetBattleController() const {return BattleController;}
+	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Object);
 
 protected:
 	

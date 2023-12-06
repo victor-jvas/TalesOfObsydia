@@ -35,6 +35,8 @@ void ABattleManager::BindSpawnEvents()
 	}
 }
 
+
+
 void ABattleManager::BeginPlay()
 {
 	Super::BeginPlay();
@@ -109,9 +111,18 @@ void ABattleManager::StartActionBar()
 			{
 				UE_LOG(LogTemp, Display, TEXT("ATB is full, ready to act"));
 				Player->ApplyEffectToSelf(TurnReadyEffect, 1);
-				Player->GetAbilitySystemComponent()->tag
+				AddToTurnOrder(Player);
 			}
 		});
+	
+}
+
+void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Object)
+{
+	if (TurnOrder.IsEmpty())
+	{
+		
+	}
 	
 }
 

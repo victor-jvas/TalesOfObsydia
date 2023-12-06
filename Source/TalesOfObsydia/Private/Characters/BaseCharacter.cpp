@@ -65,5 +65,9 @@ void ABaseCharacter::IsTurnReady()
 	}
 }
 
+void ABaseCharacter::StartTurn() const
+{
+}
+
 
 

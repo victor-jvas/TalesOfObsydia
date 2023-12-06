@@ -50,6 +50,16 @@ void APlayerCharacter::OnRep_PlayerState()
 	
 }
 
+void APlayerCharacter::StartTurn() const
+{
+	Super::StartTurn();
+
+	const ABasePlayerController* CurrentController = Cast<ABasePlayerController>(GetController());
+	ABaseHUD* HUD = Cast<ABaseHUD>(CurrentController->GetHUD());
+	HUD->DisplayPlayerTurnHUD();
+	
+}
+
 void APlayerCharacter::InitTurn()
 {
 	UE_LOG(LogTemp, Display, TEXT("InitTurn Called on Player"));

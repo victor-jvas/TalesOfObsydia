@@ -40,3 +40,8 @@ void ABaseHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySyst
 	
 	
 }
+
+void ABaseHUD::DisplayPlayerTurnHUD()
+{
+	//TODO: GET Battle Menu and show here
+}
