@@ -12,6 +12,7 @@
 #include "Characters/PlayerCharacter.h"
 #include "Characters/BaseCharacter.h"
 #include "Kismet/GameplayStatics.h"
+#include "UI/BaseHUD.h"
 
 
 ABattleManager::ABattleManager()
@@ -26,12 +27,12 @@ void ABattleManager::BindSpawnEvents()
 {
 	for (const auto SpawnPoint : PartySpawnPoint)
 	{
-		SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
+		//SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
 	}
 
 	for (const auto SpawnPoint : EnemySpawnPoint)
 	{
-		SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
+		//SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
 	}
 }
 
@@ -43,34 +44,21 @@ void ABattleManager::BeginPlay()
 	BattleController = UGameplayStatics::GetPlayerController(this, 0);
 
 	//BindSpawnEvents();
-	//SpawnCombatants();
 	SpawnPlayerParty();
 	SpawnEnemies();
 
 	StartActionBar();
 
+	ABaseHUD* HUD = Cast<ABaseHUD>(BattleController->GetHUD());
+	
+	
+	
+
 	
 }
 
 
 
-void ABattleManager::SpawnCombatants()
-{
-	checkf(!PartySpawnPoint.IsEmpty(), TEXT("Set the Party Spawn Points in Editor/BP"))
-	checkf(!EnemySpawnPoint.IsEmpty(), TEXT("Set the Enemy Spawn Points in Editor/BP"))
-
-	for (const ACharacterSpawner* SpawnPoint : PartySpawnPoint)
-	
-	{
-		
-	}
-
-	for (const ACharacterSpawner* SpawnPoint : EnemySpawnPoint)
-	
-	{
-		
-	}
-}
 
 void ABattleManager::SpawnPlayerParty()
 {
@@ -107,7 +95,7 @@ void ABattleManager::StartActionBar()
 	Player->GetAbilitySystemComponent()->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetATBProgressAttribute()).AddLambda(
 		[Player, this](const FOnAttributeChangeData& Data)
 		{
-			UE_LOG(LogTemp, Display, TEXT("Biding and responding to attribute change"));
+			
 			if (Data.NewValue > MaxATB)
 			{
 				UE_LOG(LogTemp, Display, TEXT("ATB is full, ready to act"));
@@ -133,13 +121,6 @@ void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Character)
 		TurnOrder.Add(Character);
 	}
 	
-}
-
-void ABattleManager::AddToCombat(ABaseCharacter* CharacterToAdd)
-{
-	UE_LOG(LogTemp, Display, TEXT("Character Spawned and Delegate Fired"));
-
-	TurnOrder.Add(CharacterToAdd);
 }
 
 

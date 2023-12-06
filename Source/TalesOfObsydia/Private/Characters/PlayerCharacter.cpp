@@ -90,14 +90,14 @@ void APlayerCharacter::InitAbilitySystemInfo()
 	AttributeSet = PS->GetAttributeSet();
 	
 
-	if(ABasePlayerController* NewController = Cast<ABasePlayerController>(GetController()))
+	/*if(ABasePlayerController* NewController = Cast<ABasePlayerController>(GetController()))
 	{
 		if(ABaseHUD* BaseHUD =  Cast<ABaseHUD>(NewController->GetHUD()))
 		{
 			BaseHUD->InitOverlay(NewController, PS, AbilitySystemComponent, AttributeSet);
 			
 		}
-	}
+	}*/
 
 	SetDefaultAttributes();
 	

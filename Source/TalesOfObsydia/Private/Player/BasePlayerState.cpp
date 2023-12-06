@@ -70,7 +70,7 @@ bool ABasePlayerState::IsInitialized(APlayerCharacter* PlayerCharacter) const
 	{
 		return true;
 	}
-	return false;
+	return false;;
 }
 
 
