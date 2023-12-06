@@ -29,11 +29,11 @@ public:
 	UAttributeSet* GetAttributeSet() const{	return AttributeSet; }
 
 	virtual void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> EffectClass, float Level);
+	virtual void AddCharacterAbilities();
 
 protected:
 	
 	virtual void BeginPlay() override;
-	virtual void AddCharacterAbilities();
 	virtual void SetDefaultAttributes();
 	
 

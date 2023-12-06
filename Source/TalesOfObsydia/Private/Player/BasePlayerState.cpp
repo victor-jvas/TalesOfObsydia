@@ -37,11 +37,15 @@ UAbilitySystemComponent* ABasePlayerState::GetOrCreateASCForCharacter(APlayerCha
 	{
 		return ASC;
 	}
+	
 	//If ASC is nullptr, create a new one for the Character
 	ASC = NewObject<UBaseAbilitySystemComponent>(this);
 	ASC->RegisterComponent();
 	ASC->InitAbilityActorInfo(this, Character);
 	AbilitySystemComponents.Add(ASC);
+	
+	//Add Character to the list of controlled characters so the Controller can switch
+	ControlledCharacters.Add(Character);
 
 
 	return ASC;
@@ -58,6 +62,15 @@ UAbilitySystemComponent* ABasePlayerState::CheckForASC(const APlayerCharacter* C
 		}
 	}
 	return nullptr;
+}
+
+bool ABasePlayerState::IsInitialized(APlayerCharacter* PlayerCharacter) const
+{
+	if(ControlledCharacters.Find(PlayerCharacter) != INDEX_NONE)
+	{
+		return true;
+	}
+	return false;
 }
 
 

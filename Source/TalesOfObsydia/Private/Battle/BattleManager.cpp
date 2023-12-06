@@ -78,10 +78,11 @@ void ABattleManager::SpawnPlayerParty()
 	{
 		APlayerCharacter* Char = GetWorld()->SpawnActor<APlayerCharacter>(SpawnPoint->GetClassToSpawn(), SpawnPoint->GetActorLocation(), SpawnPoint->GetActorRotation());
 		PlayerParty.Add(Char);
-
+		
 		if (BattleController)
 		{
 			BattleController->Possess(Char);
+			BattleController->UnPossess();
 		}
 		
 	}
@@ -117,11 +118,19 @@ void ABattleManager::StartActionBar()
 	
 }
 
-void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Object)
+void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Character)
 {
 	if (TurnOrder.IsEmpty())
 	{
-		
+		if (Cast<APlayerCharacter>(Character))
+		{
+			BattleController->Possess(Character);
+		}
+		Character->StartTurn();
+	}
+	else
+	{
+		TurnOrder.Add(Character);
 	}
 	
 }

@@ -32,6 +32,8 @@ public:
 
 	UAbilitySystemComponent* CheckForASC(const APlayerCharacter* Character) const;
 
+	bool IsInitialized(APlayerCharacter* PlayerCharacter) const;
+
 
 
 protected:
