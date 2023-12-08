@@ -5,6 +5,7 @@
 
 #include "Blueprint/UserWidget.h"
 #include "UI/Widget/BaseUserWidget.h"
+#include "UI/Widget/BattleCharacterStatusWidget.h"
 #include "UI/WidgetController/OverlayWidgetController.h"
 
 UOverlayWidgetController* ABaseHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
@@ -45,3 +46,13 @@ void ABaseHUD::DisplayPlayerTurnHUD()
 {
 	//TODO: GET Battle Menu and show here
 }
+
+void ABaseHUD::CreateAndInitStatusWidget(TArray<UBattleCharacterStatusWidget*> StatusWidget)
+{
+	for (auto BattleCharacterStatusWidget : StatusWidget)
+	{
+		
+	}
+}
+
+

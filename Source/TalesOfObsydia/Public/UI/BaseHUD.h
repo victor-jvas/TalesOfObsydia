@@ -6,6 +6,7 @@
 #include "GameFramework/HUD.h"
 #include "BaseHUD.generated.h"
 
+class UBattleCharacterStatusWidget;
 class UBattleBtnWidgetController;
 class UAttributeSet;
 class UAbilitySystemComponent;
@@ -30,6 +31,8 @@ public:
 	
 	void InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS);
 	void DisplayPlayerTurnHUD();
+
+	void CreateAndInitStatusWidget(TArray<UBattleCharacterStatusWidget*> StatusWidget);
 
 private:
 
