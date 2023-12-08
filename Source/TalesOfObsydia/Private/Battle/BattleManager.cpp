@@ -51,7 +51,7 @@ void ABattleManager::BeginPlay()
 	StartActionBar();
 
 	ABaseHUD* HUD = Cast<ABaseHUD>(BattleController->GetHUD());
-	HUD->InitOverlay(BattleController, BattleController->GetPlayerState<APlayerState>(), nullptr, )
+	//HUD->InitOverlay(BattleController, BattleController->GetPlayerState<APlayerState>(), nullptr, )
 	
 }
 

@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "BattleCharacterStatusWidget.generated.h"
 
+class UBaseAbilitySystemComponent;
 class UTextBlock;
 class UEditableText;
 class UProgressBar;
@@ -17,7 +18,17 @@ class TALESOFOBSYDIA_API UBattleCharacterStatusWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+protected:
+
+	TObjectPtr<UBaseAbilitySystemComponent> AbilitySystemComponent;
+
+	UFUNCTION()
+	void BindAttributeChangedEvents();
+	
+
 public:
+
+	void InitializeAttributes();
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	TObjectPtr<UProgressBar> HealthBar;

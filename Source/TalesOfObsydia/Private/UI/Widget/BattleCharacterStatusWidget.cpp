@@ -3,3 +3,45 @@
 
 #include "UI/Widget/BattleCharacterStatusWidget.h"
 
+#include <string>
+
+
+#include "AbilitySystem/BaseAbilitySystemComponent.h"
+#include "AbilitySystem/BaseAttributeSet.h"
+#include "Components/ProgressBar.h"
+#include "Components/TextBlock.h"
+
+void UBattleCharacterStatusWidget::BindAttributeChangedEvents()
+{
+	check(AbilitySystemComponent);
+
+	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
+
+	check(AttributeSet);
+	
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetHealthAttribute()).AddLambda(
+		[this, AttributeSet](const FOnAttributeChangeData& Data)
+	{
+		HealthBar->SetPercent(Data.NewValue/AttributeSet->GetMaxHealth());
+	});
+
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetManaAttribute()).AddLambda(
+		[this, AttributeSet](const FOnAttributeChangeData& Data)
+	{
+		ManaBar->SetPercent(Data.NewValue/AttributeSet->GetMaxMana());
+	});
+	
+}
+
+void  UBattleCharacterStatusWidget::InitializeAttributes()
+{
+	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
+
+	HealthBar->SetPercent(AttributeSet->GetHealth()/AttributeSet->GetMaxHealth());
+	ManaBar->SetPercent(AttributeSet->GetMana()/AttributeSet->GetMaxMana());
+	const FText Health = FText::AsNumber(AttributeSet->GetHealth());
+	HealthValue->SetText(Health);
+	const FText Mana = FText::AsNumber(AttributeSet->GetMana());
+	ManaValue->SetText(Mana);
+	
+}
