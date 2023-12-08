@@ -12,6 +12,7 @@
 #include "Characters/PlayerCharacter.h"
 #include "Characters/BaseCharacter.h"
 #include "Kismet/GameplayStatics.h"
+#include "Player/BasePlayerState.h"
 #include "UI/BaseHUD.h"
 
 
@@ -50,10 +51,7 @@ void ABattleManager::BeginPlay()
 	StartActionBar();
 
 	ABaseHUD* HUD = Cast<ABaseHUD>(BattleController->GetHUD());
-	
-	
-	
-
+	HUD->InitOverlay(BattleController, BattleController->GetPlayerState<APlayerState>(), nullptr, )
 	
 }
 

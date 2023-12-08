@@ -3,6 +3,7 @@
 
 #include "UI/WidgetController/OverlayWidgetController.h"
 
+#include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
 
 void UOverlayWidgetController::BroadCastInitialValues()
@@ -18,6 +19,20 @@ void UOverlayWidgetController::BroadCastInitialValues()
 
 void UOverlayWidgetController::BindCallbacksToDependencies()
 {
+	/*for (const auto Tuple : CharacterASCMap)
+	{
+		UBaseAbilitySystemComponent* AbilitySystemComponent = Tuple.Value;
+		const UBaseAttributeSet* AS = CastChecked<UBaseAttributeSet>(AbilitySystemComponent->GetAttributeSet(UAttributeSet::StaticClass()));
+		//const UBaseAttributeSet* AS = CastChecked<UBaseAttributeSet>(AttributeSet);
+
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddUObject(this, &UOverlayWidgetController::HealthChanged);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddUObject(this, &UOverlayWidgetController::MaxHealthChanged);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddUObject(this, &UOverlayWidgetController::ManaChanged);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddUObject(this, &UOverlayWidgetController::MaxManaChanged);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetATBProgressAttribute()).AddUObject(this, &UOverlayWidgetController::ATBChanged);
+		
+	}*/
+
 	const UBaseAttributeSet* AS = CastChecked<UBaseAttributeSet>(AttributeSet);
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddUObject(this, &UOverlayWidgetController::HealthChanged);
@@ -25,6 +40,8 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddUObject(this, &UOverlayWidgetController::ManaChanged);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddUObject(this, &UOverlayWidgetController::MaxManaChanged);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetATBProgressAttribute()).AddUObject(this, &UOverlayWidgetController::ATBChanged);
+	
+	
 }
 
 void UOverlayWidgetController::HealthChanged(const FOnAttributeChangeData& Data) const

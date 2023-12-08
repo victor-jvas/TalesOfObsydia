@@ -6,6 +6,9 @@
 #include "AbilitySystemComponent.h"
 #include "BaseWidgetController.generated.h"
 
+class APlayerCharacter;
+class UBaseAbilitySystemComponent;
+class ABaseCharacter;
 class UAttributeSet;
 class UAbilitySystemComponent;
 
@@ -18,6 +21,9 @@ struct FWidgetControllerParams
 	FWidgetControllerParams(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS) :
 	PlayerController(PC), PlayerState(PS), AbilitySystemComponent(ASC), AttributeSet(AS){};
 
+	FWidgetControllerParams(APlayerController* PC, APlayerState* PS, TMap<APlayerCharacter*, UBaseAbilitySystemComponent*> ASCMap) :
+	PlayerController(PC), PlayerState(PS), CharacterASCMap(ASCMap){};
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<APlayerController> PlayerController = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -26,6 +32,8 @@ struct FWidgetControllerParams
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UAttributeSet> AttributeSet = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<APlayerCharacter*, UBaseAbilitySystemComponent*> CharacterASCMap;
 };
 /**
  * 
@@ -50,7 +58,10 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
 	TObjectPtr<APlayerController> PlayerController;
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+	 TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+	 UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
+	 TObjectPtr<UAttributeSet> AttributeSet;
+
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
-	TObjectPtr<UAttributeSet> AttributeSet;
+	TMap<APlayerCharacter*, UBaseAbilitySystemComponent*> CharacterASCMap;
 };

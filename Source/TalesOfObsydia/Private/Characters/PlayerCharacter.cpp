@@ -33,8 +33,8 @@ APlayerCharacter::APlayerCharacter()
 void APlayerCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
-	
-	ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
+
+	const ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
 	if(!PS->IsInitialized(this))
 	{
 		//Set the owner and avatar for the ASC in the server
@@ -48,7 +48,7 @@ void APlayerCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
 
-	ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
+	const ABasePlayerState* PS = Cast<ABasePlayerState>(GetPlayerState());
 	if(!PS->IsInitialized(this))
 	{
 		//Set the owner and avatar for the ASC in the server
