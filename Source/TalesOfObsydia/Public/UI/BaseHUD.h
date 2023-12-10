@@ -6,6 +6,7 @@
 #include "GameFramework/HUD.h"
 #include "BaseHUD.generated.h"
 
+class APlayerCharacter;
 class UBattleCharacterStatusWidget;
 class UBattleBtnWidgetController;
 class UAttributeSet;
@@ -33,6 +34,9 @@ public:
 	void DisplayPlayerTurnHUD();
 
 	void CreateAndInitStatusWidget(TArray<UBattleCharacterStatusWidget*> StatusWidget);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<APlayerCharacter> Character;
 
 private:
 

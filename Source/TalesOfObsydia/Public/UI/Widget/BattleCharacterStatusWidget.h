@@ -20,6 +20,7 @@ class TALESOFOBSYDIA_API UBattleCharacterStatusWidget : public UUserWidget
 
 protected:
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UBaseAbilitySystemComponent> AbilitySystemComponent;
 
 	UFUNCTION()
@@ -28,6 +29,7 @@ protected:
 
 public:
 
+	UFUNCTION(BlueprintCallable)
 	void InitializeAttributes();
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
