@@ -8,6 +8,7 @@
 
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
+#include "Characters/PlayerCharacter.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
@@ -43,5 +44,21 @@ void  UBattleCharacterStatusWidget::InitializeAttributes()
 	HealthValue->SetText(Health);
 	const FText Mana = FText::AsNumber(AttributeSet->GetMana());
 	ManaValue->SetText(Mana);
+	
+}
+
+void UBattleCharacterStatusWidget::SetCharacterInfo(const APlayerCharacter* PlayerCharacter)
+{
+	if (PlayerCharacter)
+	{
+		AbilitySystemComponent = Cast<UBaseAbilitySystemComponent>(PlayerCharacter->GetAbilitySystemComponent());
+	}
+	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
+
+	HealthBar->SetPercent(AttributeSet->GetHealth()/AttributeSet->GetMaxHealth());
+	ManaBar->SetPercent(AttributeSet->GetMana()/AttributeSet->GetMaxMana());
+	const FText Health = FText::AsNumber(AttributeSet->GetHealth());
+	HealthValue->SetText(Health);
+	const FText Mana = FText::AsNumber(AttributeSet->GetMana());ManaValue->SetText(Mana);
 	
 }

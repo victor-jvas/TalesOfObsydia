@@ -56,8 +56,6 @@ void ABattleManager::BeginPlay()
 }
 
 
-
-
 void ABattleManager::SpawnPlayerParty()
 {
 	for (const auto SpawnPoint : PartySpawnPoint)
@@ -70,8 +68,8 @@ void ABattleManager::SpawnPlayerParty()
 			BattleController->Possess(Char);
 			BattleController->UnPossess();
 		}
-		
 	}
+	
 }
 
 void ABattleManager::SpawnEnemies()

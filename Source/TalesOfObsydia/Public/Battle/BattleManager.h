@@ -25,38 +25,15 @@ public:
 	ABattleManager();
 
 	APlayerController* GetBattleController() const {return BattleController;}
-	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Object);
-
-protected:
 	
+	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Object);
 	
 	virtual void BeginPlay() override;
-
-	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<APlayerController> BattleController;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
-	TArray<TObjectPtr<ACharacterSpawner>> PartySpawnPoint;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
-	TArray<TObjectPtr<ACharacterSpawner>> EnemySpawnPoint;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
-	TArray<TObjectPtr<APlayerCharacter>> PlayerParty;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
-	TArray<TObjectPtr<AEnemyCharacter>> EnemiesParty;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
-	TSubclassOf<UGameplayEffect> ActionBarEffect;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
-	TSubclassOf<UGameplayEffect> TurnReadyEffect;
 	
 	const float MaxATB = 255;
-	
-
 
 	// Pre-Battle
 	
-
 	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
 	virtual void SpawnPlayerParty();
 
@@ -65,16 +42,68 @@ protected:
 
 	virtual void StartActionBar();
 
-	
-
 	void BindSpawnEvents();
 	
 	// Battle
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<ABaseCharacter>> TurnOrder;
-	
 
+
+protected:
+	
+	// Properties
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<APlayerController> BattleController;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
+	TArray<TObjectPtr<ACharacterSpawner>> PartySpawnPoint;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
+	TArray<TObjectPtr<ACharacterSpawner>> EnemySpawnPoint;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
+	TArray<TObjectPtr<APlayerCharacter>> PlayerParty;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
+	TArray<TObjectPtr<AEnemyCharacter>> EnemiesParty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
+	TSubclassOf<UGameplayEffect> ActionBarEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
+	TSubclassOf<UGameplayEffect> TurnReadyEffect;
+
+
+	// Getters and Setters
+public:
+	TArray<TObjectPtr<ABaseCharacter>> GetTurnOrder() const
+	{
+		return TurnOrder;
+	}
+
+	void SetTurnOrder(const TArray<TObjectPtr<ABaseCharacter>>& TurnOrder)
+	{
+		this->TurnOrder = TurnOrder;
+	}
+
+	TArray<TObjectPtr<APlayerCharacter>> GetPlayerParty() const
+	{
+		return PlayerParty;
+	}
+
+	void SetPlayerParty(const TArray<TObjectPtr<APlayerCharacter>>& PlayerParty)
+	{
+		this->PlayerParty = PlayerParty;
+	}
+
+	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesParty() const
+	{
+		return EnemiesParty;
+	}
+
+	void SetEnemiesParty(const TArray<TObjectPtr<AEnemyCharacter>>& EnemiesParty)
+	{
+		this->EnemiesParty = EnemiesParty;
+	}
 	
 
 	

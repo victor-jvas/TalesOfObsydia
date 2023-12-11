@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "BattleCharacterStatusWidget.generated.h"
 
+class APlayerCharacter;
 class UBaseAbilitySystemComponent;
 class UTextBlock;
 class UEditableText;
@@ -31,6 +32,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void InitializeAttributes();
+	void SetCharacterInfo(const APlayerCharacter* PlayerCharacter);
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	TObjectPtr<UProgressBar> HealthBar;
