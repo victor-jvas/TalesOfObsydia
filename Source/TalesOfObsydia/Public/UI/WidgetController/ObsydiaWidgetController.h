@@ -3,28 +3,40 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UI/WidgetController/BaseWidgetController.h"
-#include "OverlayWidgetController.generated.h"
+#include "Characters/PlayerCharacter.h"
+#include "GameFramework/Actor.h"
+#include "ObsydiaWidgetController.generated.h"
 
+struct FOnAttributeChangeData;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHealthChangedSignature, float, NewHealth);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMaxHealthChangedSignature, float, NewMaxHealth);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnManaChangedSignature, float, NewMana);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMaxManaChangedSignature, float, NewMaxMana);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnATBChangedSigntaure, float, NewATB);
 
-/**
- * 
- */
-UCLASS(BlueprintType, Blueprintable)
-class TALESOFOBSYDIA_API UOverlayWidgetController : public UBaseWidgetController
+class APlayerCharacter;
+class UBaseAbilitySystemComponent;
+
+UCLASS()
+class TALESOFOBSYDIA_API UObsydiaWidgetController : public UObject
 {
 	GENERATED_BODY()
 
+protected:
+
+	UPROPERTY(BlueprintReadWrite, Category = "Core")
+	UBaseAbilitySystemComponent* AbilitySystemComponent;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Core")
+	APlayerCharacter* PlayerCharacter;
+
+
 public:
 
+	UFUNCTION(BlueprintCallable, Category = "Initialization")
+	void InitController(UBaseAbilitySystemComponent* ASC, APlayerCharacter* Character);
 	
-	virtual void BroadCastInitialValues() override;
-	virtual void BindCallbacksToDependencies() override;
+	void BindCallbacksToDependencies();
 
 	void HealthChanged(const FOnAttributeChangeData& Data) const;
 	void MaxHealthChanged(const FOnAttributeChangeData& Data) const;
@@ -44,4 +56,5 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Battle")
 	FOnATBChangedSigntaure OnATBChanged;
+	
 };

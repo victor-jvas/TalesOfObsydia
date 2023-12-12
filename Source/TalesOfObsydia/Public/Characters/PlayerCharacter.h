@@ -24,7 +24,6 @@ public:
 	void InitAbilitySystemInfo();
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
-	virtual void StartTurn() const override;
 	virtual void InitTurn() override;
 
 

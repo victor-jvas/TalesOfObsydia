@@ -111,7 +111,7 @@ void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Character)
 		{
 			BattleController->Possess(Character);
 		}
-		Character->StartTurn();
+		//Character->StartTurn();
 	}
 	else
 	{

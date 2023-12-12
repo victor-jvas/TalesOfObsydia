@@ -9,9 +9,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Logging/StructuredLog.h"
-#include "Player/BasePlayerController.h"
 #include "Player/BasePlayerState.h"
-#include "UI/BaseHUD.h"
+
 
 APlayerCharacter::APlayerCharacter()
 {
@@ -58,15 +57,6 @@ void APlayerCharacter::OnRep_PlayerState()
 	
 }
 
-void APlayerCharacter::StartTurn() const
-{
-	Super::StartTurn();
-
-	const ABasePlayerController* CurrentController = Cast<ABasePlayerController>(GetController());
-	ABaseHUD* HUD = Cast<ABaseHUD>(CurrentController->GetHUD());
-	HUD->DisplayPlayerTurnHUD();
-	
-}
 
 void APlayerCharacter::InitTurn()
 {

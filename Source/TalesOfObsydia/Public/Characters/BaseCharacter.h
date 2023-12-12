@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "GameplayTagContainer.h"
-#include "Game/CombatInterface.h"
 #include "GameFramework/Character.h"
 #include "BaseCharacter.generated.h"
 
@@ -17,7 +16,7 @@ class UAttributeSet;
 
 
 UCLASS(Abstract)
-class TALESOFOBSYDIA_API ABaseCharacter : public ACharacter, public IAbilitySystemInterface, public ICombatInterface
+class TALESOFOBSYDIA_API ABaseCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -71,6 +70,5 @@ public:
 
 	UFUNCTION()
 	void IsTurnReady();
-
-	virtual void StartTurn() const override;
+	
 };
