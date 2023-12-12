@@ -25,6 +25,9 @@ public:
 	ABattleManager();
 
 	APlayerController* GetBattleController() const {return BattleController;}
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnSpawnFinished();
 	
 	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Object);
 	

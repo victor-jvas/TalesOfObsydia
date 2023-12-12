@@ -27,7 +27,7 @@ struct FBattleWidgetController
 	
 };
 
-UCLASS()
+UCLASS(BlueprintType)
 class TALESOFOBSYDIA_API UBattleCharacterStatusWidget : public UUserWidget
 {
 	GENERATED_BODY()
@@ -36,22 +36,23 @@ protected:
 
 	virtual void NativeConstruct() override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controller")
+	UPROPERTY(BlueprintReadWrite, Category = "Controller")
 	TObjectPtr<UBaseAbilitySystemComponent> AbilitySystemComponent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controller")
+	UPROPERTY(BlueprintReadWrite, Category = "Controller")
 	APlayerCharacter* Character;
-
-	UFUNCTION(BlueprintCallable)
-	void SetCharacter(APlayerCharacter* InCharacter);
-	
-	
 
 	UFUNCTION()
 	void BindAttributeChangedEvents();
 	
 
 public:
+
+	
+
+
+	UFUNCTION(BlueprintCallable)
+	void SetCharacter(APlayerCharacter* InCharacter);
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnCharacterSet();

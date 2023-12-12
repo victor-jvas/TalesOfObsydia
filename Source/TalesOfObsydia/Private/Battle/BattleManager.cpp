@@ -12,8 +12,7 @@
 #include "Characters/PlayerCharacter.h"
 #include "Characters/BaseCharacter.h"
 #include "Kismet/GameplayStatics.h"
-#include "Player/BasePlayerState.h"
-#include "UI/BaseHUD.h"
+
 
 
 ABattleManager::ABattleManager()
@@ -47,6 +46,8 @@ void ABattleManager::BeginPlay()
 	//BindSpawnEvents();
 	SpawnPlayerParty();
 	SpawnEnemies();
+	
+	OnSpawnFinished();
 
 	StartActionBar();
 
