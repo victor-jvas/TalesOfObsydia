@@ -4,27 +4,19 @@
 #include "Game/BattleGameMode.h"
 
 #include "Battle/BattleManager.h"
+#include "Characters/PlayerCharacter.h"
+#include "Kismet/GameplayStatics.h"
 #include "UI/Widget/BattleCharacterStatusWidget.h"
 
 void ABattleGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ABattleManager BattleManager;
+	const ABattleManager* BattleManager = Cast<ABattleManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ABattleManager::StaticClass()));
 
-	BattleManager.SpawnPlayerParty();
+	//BattleManager->SpawnPlayerParty();
 
-	auto PlayerParty = BattleManager.GetPlayerParty();
-
-	for (auto PlayerCharacter : PlayerParty)
-	{
-		UBattleCharacterStatusWidget* StatusWidget = CreateWidget<UBattleCharacterStatusWidget>(GetWorld(), UBattleCharacterStatusWidget::StaticClass());
-		if (StatusWidget)
-		{
-			StatusWidget->AddToViewport();
-			StatusWidget->SetCharacterInfo(PlayerCharacter);
-		}
-	}
+	auto PlayerParty = BattleManager->GetPlayerParty();
 	
 	
 }

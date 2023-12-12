@@ -79,34 +79,16 @@ public:
 	{
 		return TurnOrder;
 	}
-
-	void SetTurnOrder(const TArray<TObjectPtr<ABaseCharacter>>& TurnOrder)
-	{
-		this->TurnOrder = TurnOrder;
-	}
+	
 
 	TArray<TObjectPtr<APlayerCharacter>> GetPlayerParty() const
 	{
 		return PlayerParty;
 	}
 
-	void SetPlayerParty(const TArray<TObjectPtr<APlayerCharacter>>& PlayerParty)
-	{
-		this->PlayerParty = PlayerParty;
-	}
-
 	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesParty() const
 	{
 		return EnemiesParty;
 	}
-
-	void SetEnemiesParty(const TArray<TObjectPtr<AEnemyCharacter>>& EnemiesParty)
-	{
-		this->EnemiesParty = EnemiesParty;
-	}
-	
-
-	
-	
 	
 };

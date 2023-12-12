@@ -15,4 +15,5 @@ class TALESOFOBSYDIA_API ABattleGameMode : public ADefaultGameMode
 	GENERATED_BODY()
 
 	virtual void BeginPlay() override;
+	
 };

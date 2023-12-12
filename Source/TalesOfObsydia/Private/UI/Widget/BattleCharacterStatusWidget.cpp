@@ -8,12 +8,39 @@
 
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
+#include "Blueprint/WidgetTree.h"
 #include "Characters/PlayerCharacter.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
+void UBattleCharacterStatusWidget::NativeConstruct()
+{
+	Super::NativeConstruct();
+
+	/*if (HealthBar)
+	{
+		UE_LOG(LogTemp, Display, TEXT("Health bar is valid"));
+		
+	}
+	else
+	{
+		UE_LOG(LogTemp, Display, TEXT("Health bar is NULL"));
+		HealthBar = WidgetTree->ConstructWidget<UProgressBar>();
+		//HealthBar = UWidgetTree::ConstructWidget<UProgressBar>();
+	}*/
+
+	
+}
+
+void UBattleCharacterStatusWidget::SetCharacter(const TObjectPtr<APlayerCharacter> InCharacter)
+{
+	Character = InCharacter;
+	
+}
+
 void UBattleCharacterStatusWidget::BindAttributeChangedEvents()
 {
+	/*
 	check(AbilitySystemComponent);
 
 	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
@@ -31,25 +58,26 @@ void UBattleCharacterStatusWidget::BindAttributeChangedEvents()
 	{
 		ManaBar->SetPercent(Data.NewValue/AttributeSet->GetMaxMana());
 	});
+	*/
 	
 }
 
 void  UBattleCharacterStatusWidget::InitializeAttributes()
 {
-	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
+	/*const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
 
 	HealthBar->SetPercent(AttributeSet->GetHealth()/AttributeSet->GetMaxHealth());
 	ManaBar->SetPercent(AttributeSet->GetMana()/AttributeSet->GetMaxMana());
 	const FText Health = FText::AsNumber(AttributeSet->GetHealth());
 	HealthValue->SetText(Health);
 	const FText Mana = FText::AsNumber(AttributeSet->GetMana());
-	ManaValue->SetText(Mana);
+	ManaValue->SetText(Mana);*/
 	
 }
 
 void UBattleCharacterStatusWidget::SetCharacterInfo(const APlayerCharacter* PlayerCharacter)
 {
-	if (PlayerCharacter)
+	/*if (PlayerCharacter)
 	{
 		AbilitySystemComponent = Cast<UBaseAbilitySystemComponent>(PlayerCharacter->GetAbilitySystemComponent());
 	}
@@ -60,5 +88,6 @@ void UBattleCharacterStatusWidget::SetCharacterInfo(const APlayerCharacter* Play
 	const FText Health = FText::AsNumber(AttributeSet->GetHealth());
 	HealthValue->SetText(Health);
 	const FText Mana = FText::AsNumber(AttributeSet->GetMana());ManaValue->SetText(Mana);
+	*/
 	
 }
