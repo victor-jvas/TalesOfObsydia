@@ -34,6 +34,8 @@ public:
 
 	bool IsInitialized(APlayerCharacter* PlayerCharacter) const;
 
+	UFUNCTION(BlueprintCallable)
+	TArray<APlayerCharacter*> GetControlledCharacters() {return ControlledCharacters;}
 
 
 protected:
@@ -47,6 +49,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Gameplay Ability Sytem|Attributes")
 	TObjectPtr<UAttributeSet> AttributeSet;
 
+	
 	// Character Handling
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Gameplay Ability System")

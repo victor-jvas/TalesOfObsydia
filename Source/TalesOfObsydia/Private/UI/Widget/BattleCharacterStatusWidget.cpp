@@ -32,7 +32,7 @@ void UBattleCharacterStatusWidget::NativeConstruct()
 	
 }
 
-void UBattleCharacterStatusWidget::SetCharacter(const TObjectPtr<APlayerCharacter> InCharacter)
+void UBattleCharacterStatusWidget::SetCharacter(APlayerCharacter* InCharacter)
 {
 	Character = InCharacter;
 	

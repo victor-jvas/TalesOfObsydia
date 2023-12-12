@@ -9,15 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Game/BattleGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Game/BattleGameMode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/BattleCharacterStatusWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/BattleCharacterStatusWidget.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/WidgetController/BattleBtnWidgetController.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Battle/BattleManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Battle/BattleManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Game/BattleGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Game/BattleGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Player/BasePlayerState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Player/BasePlayerState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/Widget/BattleCharacterStatusWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/Widget/BattleCharacterStatusWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/WidgetController/BattleBtnWidgetController.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/TalesOfObsydia.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/TalesOfObsydia.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,7 +402,7 @@
       <workItem from="1701883414497" duration="8530000" />
       <workItem from="1702057980525" duration="10270000" />
       <workItem from="1702170766733" duration="2866000" />
-      <workItem from="1702301426089" duration="14837000" />
+      <workItem from="1702301426089" duration="15757000" />
     </task>
     <servers />
   </component>

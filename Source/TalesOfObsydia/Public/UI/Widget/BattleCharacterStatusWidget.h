@@ -40,9 +40,10 @@ protected:
 	TObjectPtr<UBaseAbilitySystemComponent> AbilitySystemComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Controller")
-	TObjectPtr<APlayerCharacter> Character;
+	APlayerCharacter* Character;
 
-	void SetCharacter(TObjectPtr<APlayerCharacter> InCharacter);
+	UFUNCTION(BlueprintCallable)
+	void SetCharacter(APlayerCharacter* InCharacter);
 	
 	
 
