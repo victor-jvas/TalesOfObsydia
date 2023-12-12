@@ -9,17 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/BaseCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/BaseHUD.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/WidgetController/BaseWidgetController.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/WidgetController/OverlayWidgetController.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/BaseCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/PlayerCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/BaseHUD.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/WidgetController/BaseWidgetController.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/WidgetController/OverlayWidgetController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/BattleCharacterStatusWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/BattleCharacterStatusWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/Widget/BattleCharacterStatusWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/Widget/BattleCharacterStatusWidget.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +167,7 @@
       <workItem from="1702057980525" duration="10270000" />
       <workItem from="1702170766733" duration="2866000" />
       <workItem from="1702301426089" duration="16370000" />
-      <workItem from="1702391316065" duration="6856000" />
+      <workItem from="1702391316065" duration="8678000" />
     </task>
     <servers />
   </component>
@@ -191,7 +182,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/BattleCharacterStatusWidget.cpp</url>
-          <line>67</line>
+          <line>68</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -206,7 +197,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/BattleCharacterStatusWidget.cpp</url>
-          <line>18</line>
+          <line>19</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

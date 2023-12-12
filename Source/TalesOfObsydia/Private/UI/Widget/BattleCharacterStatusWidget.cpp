@@ -12,11 +12,12 @@
 #include "Characters/PlayerCharacter.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
+#include "UI/WidgetController/ObsydiaWidgetController.h"
 
 void UBattleCharacterStatusWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-
+	
 	/*if (HealthBar)
 	{
 		UE_LOG(LogTemp, Display, TEXT("Health bar is valid"));
@@ -28,38 +29,38 @@ void UBattleCharacterStatusWidget::NativeConstruct()
 		HealthBar = WidgetTree->ConstructWidget<UProgressBar>();
 		//HealthBar = UWidgetTree::ConstructWidget<UProgressBar>();
 	}*/
-
 	
 }
 
 void UBattleCharacterStatusWidget::SetCharacter(APlayerCharacter* InCharacter)
 {
 	Character = InCharacter;
-	
 }
 
-void UBattleCharacterStatusWidget::BindAttributeChangedEvents()
+void UBattleCharacterStatusWidget::SetAbilitySystemComponent(UBaseAbilitySystemComponent* InASC)
 {
-	/*
-	check(AbilitySystemComponent);
+	AbilitySystemComponent = InASC;
+}
 
-	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
+void UBattleCharacterStatusWidget::InitWidget(APlayerCharacter* InCharacter)
+{
+	SetCharacter(InCharacter);
+	const auto ASC = Cast<UBaseAbilitySystemComponent>(InCharacter->GetAbilitySystemComponent());
+	SetAbilitySystemComponent(ASC);
+	CreateWidgetController();
+}
 
-	check(AttributeSet);
-	
-	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetHealthAttribute()).AddLambda(
-		[this, AttributeSet](const FOnAttributeChangeData& Data)
+UObsydiaWidgetController* UBattleCharacterStatusWidget::CreateWidgetController()
+{
+	if (WidgetController)
 	{
-		HealthBar->SetPercent(Data.NewValue/AttributeSet->GetMaxHealth());
-	});
-
-	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetManaAttribute()).AddLambda(
-		[this, AttributeSet](const FOnAttributeChangeData& Data)
-	{
-		ManaBar->SetPercent(Data.NewValue/AttributeSet->GetMaxMana());
-	});
-	*/
+		return WidgetController;
+	}
 	
+	WidgetController = NewObject<UObsydiaWidgetController>(this, UObsydiaWidgetController::StaticClass());
+	WidgetController->InitController(AbilitySystemComponent, Character);
+	WidgetController->BindCallbacksToDependencies();
+	return WidgetController;
 }
 
 void  UBattleCharacterStatusWidget::InitializeAttributes()
@@ -88,6 +89,30 @@ void UBattleCharacterStatusWidget::SetCharacterInfo(const APlayerCharacter* Play
 	const FText Health = FText::AsNumber(AttributeSet->GetHealth());
 	HealthValue->SetText(Health);
 	const FText Mana = FText::AsNumber(AttributeSet->GetMana());ManaValue->SetText(Mana);
+	*/
+	
+}
+
+void UBattleCharacterStatusWidget::BindAttributeChangedEvents()
+{
+	/*
+	check(AbilitySystemComponent);
+
+	const UBaseAttributeSet* AttributeSet = Cast<UBaseAttributeSet>(AbilitySystemComponent->GetSet<UAttributeSet>());
+
+	check(AttributeSet);
+	
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetHealthAttribute()).AddLambda(
+		[this, AttributeSet](const FOnAttributeChangeData& Data)
+	{
+		HealthBar->SetPercent(Data.NewValue/AttributeSet->GetMaxHealth());
+	});
+
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSet->GetManaAttribute()).AddLambda(
+		[this, AttributeSet](const FOnAttributeChangeData& Data)
+	{
+		ManaBar->SetPercent(Data.NewValue/AttributeSet->GetMaxMana());
+	});
 	*/
 	
 }

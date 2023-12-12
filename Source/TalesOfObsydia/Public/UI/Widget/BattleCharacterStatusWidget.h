@@ -7,6 +7,7 @@
 #include "Characters/PlayerCharacter.h"
 #include "BattleCharacterStatusWidget.generated.h"
 
+class UObsydiaWidgetController;
 class APlayerCharacter;
 class UBaseAbilitySystemComponent;
 class UTextBlock;
@@ -16,16 +17,6 @@ class UProgressBar;
  * 
  */
 
-USTRUCT(BlueprintType)
-struct FBattleWidgetController
-{
-	GENERATED_BODY()
-
-	FBattleWidgetController() {};
-
-	TObjectPtr<UBaseAbilitySystemComponent> AbilitySystemComponent;
-	
-};
 
 UCLASS(BlueprintType)
 class TALESOFOBSYDIA_API UBattleCharacterStatusWidget : public UUserWidget
@@ -36,10 +27,13 @@ protected:
 
 	virtual void NativeConstruct() override;
 
-	UPROPERTY(BlueprintReadWrite, Category = "Controller")
+	UPROPERTY(BlueprintReadWrite, Category = "Core")
+	TObjectPtr<UObsydiaWidgetController> WidgetController;
+	
+	UPROPERTY(BlueprintReadWrite, Category = "Core")
 	TObjectPtr<UBaseAbilitySystemComponent> AbilitySystemComponent;
 
-	UPROPERTY(BlueprintReadWrite, Category = "Controller")
+	UPROPERTY(BlueprintReadWrite, Category = "Core")
 	APlayerCharacter* Character;
 
 	UFUNCTION()
@@ -48,11 +42,17 @@ protected:
 
 public:
 
-	
-
+	UObsydiaWidgetController* CreateWidgetController();
 
 	UFUNCTION(BlueprintCallable)
 	void SetCharacter(APlayerCharacter* InCharacter);
+
+	UFUNCTION(BlueprintCallable)
+	void SetAbilitySystemComponent(UBaseAbilitySystemComponent* InCharacter);
+	
+
+	UFUNCTION(BlueprintCallable)
+	void InitWidget(APlayerCharacter* InCharacter);
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnCharacterSet();
