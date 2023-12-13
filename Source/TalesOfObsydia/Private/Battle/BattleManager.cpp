@@ -118,8 +118,6 @@ void ABattleManager::StartTurn() const
 
 	if (const auto BattleMenu = ShowBattleMenu())
 	{
-		//BattleMenu->SetUserFocus(BattleController);
-		//BattleMenu->SetKeyboardFocus();
 		const auto MenuButton = BattleMenu->WidgetTree->FindWidget(FName("BTN_Attack"));
 		MenuButton->SetUserFocus(BattleController);
 		
