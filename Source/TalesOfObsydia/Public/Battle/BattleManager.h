@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameplayEffect.h"
+#include "Components/Widget.h"
 #include "GameFramework/Actor.h"
 
 #include "BattleManager.generated.h"
@@ -25,6 +26,8 @@ public:
 	ABattleManager();
 
 	APlayerController* GetBattleController() const {return BattleController;}
+
+	ABaseCharacter* GetCurrentTurnCharacter();
 	
 	virtual void BeginPlay() override;
 	
@@ -48,9 +51,12 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<ABaseCharacter>> TurnOrder;
 
-	
-	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Object);
-	void ShowBattleMenu();
+
+	void StartTurn() const;
+	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Character);
+	int32 GetElementIndex(APlayerCharacter* PlayerCharacter);
+	void GetCharacterStatusWidget();
+	UUserWidget* ShowBattleMenu() const;
 
 
 protected:

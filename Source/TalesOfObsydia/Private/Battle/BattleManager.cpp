@@ -8,6 +8,8 @@
 #include "Abilities/Async/AbilityAsync_WaitGameplayTag.h"
 #include "AbilitySystem/BaseAttributeSet.h"
 #include "Battle/CharacterSpawner.h"
+#include "Blueprint/UserWidget.h"
+#include "Blueprint/WidgetTree.h"
 #include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
 #include "Characters/BaseCharacter.h"
@@ -36,7 +38,16 @@ void ABattleManager::BindSpawnEvents()
 	}
 }
 
+ABaseCharacter* ABattleManager::GetCurrentTurnCharacter()
+{
+	if (TurnOrder.IsEmpty())
+	{
+		return nullptr;	
+	}
 
+	return TurnOrder[0];
+	
+}
 
 void ABattleManager::BeginPlay()
 {
@@ -50,9 +61,9 @@ void ABattleManager::BeginPlay()
 	OnSpawnFinished();
 
 	StartActionBar();
+	UE_LOG(LogTemp, Display, TEXT("Arrived Here"));
 	
 }
-
 
 void ABattleManager::SpawnPlayerParty()
 {
@@ -100,14 +111,31 @@ void ABattleManager::StartActionBar()
 	
 }
 
-void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Character)
+void ABattleManager::StartTurn() const
+{
+	const FInputModeUIOnly UIMode;
+	BattleController->SetInputMode(UIMode);
+
+	if (const auto BattleMenu = ShowBattleMenu())
+	{
+		//BattleMenu->SetUserFocus(BattleController);
+		//BattleMenu->SetKeyboardFocus();
+		const auto MenuButton = BattleMenu->WidgetTree->FindWidget(FName("BTN_Attack"));
+		MenuButton->SetUserFocus(BattleController);
+		
+	}
+	
+}
+
+void ABattleManager::AddToTurnOrder(const TObjectPtr<ABaseCharacter> Character)
 {
 	if (TurnOrder.IsEmpty())
 	{
+		TurnOrder.Add(Character);
 		if (Cast<APlayerCharacter>(Character))
 		{
 			BattleController->Possess(Character);
-			ShowBattleMenu();
+			StartTurn();
 		}
 		//Character->StartTurn();
 	}
@@ -118,9 +146,51 @@ void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Character)
 	
 }
 
-void ABattleManager::ShowBattleMenu()
+int32 ABattleManager::GetElementIndex(APlayerCharacter* PlayerCharacter)
 {
-	
+	for (int i = 0; i < PlayerParty.Num(); i++)
+	{
+		if (PlayerCharacter == PlayerParty[0])
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+//TODO: Change method type and add return statement
+void ABattleManager::GetCharacterStatusWidget()
+{
+	if (ABaseCharacter* Character = GetCurrentTurnCharacter())
+	{
+		UWidget* StatusWidget;
+		const auto PlayerCharacter = Cast<APlayerCharacter>(Character);
+
+		switch (GetElementIndex(PlayerCharacter))
+		{
+		case 0:
+			StatusWidget = BattleUI->WidgetTree->FindWidget(FName("FirstCharacterStatus"));
+			break;
+		case 1:
+			StatusWidget = BattleUI->WidgetTree->FindWidget(FName("SecondCharacterStatus"));
+			break;
+		case 2:
+			StatusWidget = BattleUI->WidgetTree->FindWidget(FName("ThirdCharacterStatus"));
+			break;
+		default:
+			UE_LOG(LogTemp, Display, TEXT("Character not found in Player Party"));
+			break;
+		}
+	}
+}
+
+UUserWidget* ABattleManager::ShowBattleMenu() const
+{
+	UUserWidget* BattleMenu = Cast<UUserWidget>(BattleUI->WidgetTree->FindWidget(FName("BattleMenu")));
+
+	BattleMenu->SetVisibility(ESlateVisibility::Visible);
+
+	return BattleMenu;
 }
 
 
