@@ -25,18 +25,12 @@ public:
 	ABattleManager();
 
 	APlayerController* GetBattleController() const {return BattleController;}
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void OnSpawnFinished();
-	
-	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Object);
 	
 	virtual void BeginPlay() override;
 	
 	const float MaxATB = 255;
 
 	// Pre-Battle
-	
 	UFUNCTION(BlueprintCallable, Category = "Configuration|Pre-Battle")
 	virtual void SpawnPlayerParty();
 
@@ -46,11 +40,17 @@ public:
 	virtual void StartActionBar();
 
 	void BindSpawnEvents();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnSpawnFinished();
 	
 	// Battle
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<ABaseCharacter>> TurnOrder;
+
+	
+	void AddToTurnOrder(TObjectPtr<ABaseCharacter> Object);
+	void ShowBattleMenu();
 
 
 protected:
@@ -58,6 +58,8 @@ protected:
 	// Properties
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<APlayerController> BattleController;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Configuration|Pre-Battle")
+	TObjectPtr<UUserWidget> BattleUI;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Configuration|Pre-Battle")
 	TArray<TObjectPtr<ACharacterSpawner>> PartySpawnPoint;
@@ -66,7 +68,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<APlayerCharacter>> PlayerParty;
-	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Configuration|Battle")
 	TArray<TObjectPtr<AEnemyCharacter>> EnemiesParty;
 
@@ -82,7 +83,6 @@ public:
 	{
 		return TurnOrder;
 	}
-	
 
 	TArray<TObjectPtr<APlayerCharacter>> GetPlayerParty() const
 	{

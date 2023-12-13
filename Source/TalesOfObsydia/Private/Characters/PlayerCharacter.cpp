@@ -60,12 +60,6 @@ void APlayerCharacter::OnRep_PlayerState()
 
 void APlayerCharacter::InitTurn()
 {
-	UE_LOG(LogTemp, Display, TEXT("InitTurn Called on Player"));
-	if(IsPawnControlled())
-	{
-		UE_LOGFMT(LogTemp, Warning, "Is Pawn Controlled: {0}", GetController()->GetName());
-	}
-	
 		
 }
 

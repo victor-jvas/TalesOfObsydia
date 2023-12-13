@@ -38,6 +38,9 @@ protected:
 
 	UFUNCTION()
 	void BindAttributeChangedEvents();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnWidgetControllerSet();
 	
 
 public:

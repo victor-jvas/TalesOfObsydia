@@ -50,9 +50,6 @@ void ABattleManager::BeginPlay()
 	OnSpawnFinished();
 
 	StartActionBar();
-
-	//ABaseHUD* HUD = Cast<ABaseHUD>(BattleController->GetHUD());
-	//HUD->InitOverlay(BattleController, BattleController->GetPlayerState<APlayerState>(), nullptr, )
 	
 }
 
@@ -110,6 +107,7 @@ void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Character)
 		if (Cast<APlayerCharacter>(Character))
 		{
 			BattleController->Possess(Character);
+			ShowBattleMenu();
 		}
 		//Character->StartTurn();
 	}
@@ -117,6 +115,11 @@ void ABattleManager::AddToTurnOrder(TObjectPtr<ABaseCharacter> Character)
 	{
 		TurnOrder.Add(Character);
 	}
+	
+}
+
+void ABattleManager::ShowBattleMenu()
+{
 	
 }
 

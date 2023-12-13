@@ -35,6 +35,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Initialization")
 	void InitController(UBaseAbilitySystemComponent* ASC, APlayerCharacter* Character);
+
+	void BroadcastInitialValues() const;
 	
 	void BindCallbacksToDependencies();
 
@@ -45,16 +47,16 @@ public:
 	void ATBChanged(const FOnAttributeChangeData& Data) const;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-	FOnHealthChangedSignature OnHealthChanged;
+	FOnHealthChangedSignature OnHealthChangedDelegate;
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-	FOnMaxHealthChangedSignature OnMaxHealthChanged;
+	FOnMaxHealthChangedSignature OnMaxHealthChangedDelegate;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-	FOnManaChangedSignature OnManaChanged;
+	FOnManaChangedSignature OnManaChangedDelegate;
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-	FOnMaxManaChangedSignature OnMaxManaChanged;
+	FOnMaxManaChangedSignature OnMaxManaChangedDelegate;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Battle")
-	FOnATBChangedSigntaure OnATBChanged;
+	FOnATBChangedSigntaure OnATBChangedDelegate;
 	
 };

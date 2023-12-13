@@ -14,6 +14,15 @@ void UObsydiaWidgetController::InitController(UBaseAbilitySystemComponent* ASC, 
 	PlayerCharacter = Character;
 }
 
+void UObsydiaWidgetController::BroadcastInitialValues() const
+{
+	const UBaseAttributeSet* AS = AbilitySystemComponent->GetSet<UBaseAttributeSet>();
+	OnHealthChangedDelegate.Broadcast(AS->GetHealth());
+	OnMaxHealthChangedDelegate.Broadcast(AS->GetMaxHealth());
+	OnManaChangedDelegate.Broadcast(AS->GetMana());
+	OnMaxManaChangedDelegate.Broadcast(AS->GetMaxMana());
+}
+
 void UObsydiaWidgetController::BindCallbacksToDependencies()
 {
 	const UBaseAttributeSet* AS = AbilitySystemComponent->GetSet<UBaseAttributeSet>();
@@ -23,31 +32,33 @@ void UObsydiaWidgetController::BindCallbacksToDependencies()
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddUObject(this, &UObsydiaWidgetController::ManaChanged);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddUObject(this, &UObsydiaWidgetController::MaxManaChanged);
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetATBProgressAttribute()).AddUObject(this, &UObsydiaWidgetController::ATBChanged);
+	
+	
 }
 
 void UObsydiaWidgetController::HealthChanged(const FOnAttributeChangeData& Data) const
 {
-	OnHealthChanged.Broadcast(Data.NewValue);
+	OnHealthChangedDelegate.Broadcast(Data.NewValue);
 }
 
 void UObsydiaWidgetController::MaxHealthChanged(const FOnAttributeChangeData& Data) const
 {
-	OnMaxHealthChanged.Broadcast(Data.NewValue);
+	OnMaxHealthChangedDelegate.Broadcast(Data.NewValue);
 }
 
 void UObsydiaWidgetController::ManaChanged(const FOnAttributeChangeData& Data) const
 {
-	OnManaChanged.Broadcast(Data.NewValue);
+	OnManaChangedDelegate.Broadcast(Data.NewValue);
 }
 
 void UObsydiaWidgetController::MaxManaChanged(const FOnAttributeChangeData& Data) const
 {
-	OnMaxManaChanged.Broadcast(Data.NewValue);
+	OnMaxManaChangedDelegate.Broadcast(Data.NewValue);
 }
 
 void UObsydiaWidgetController::ATBChanged(const FOnAttributeChangeData& Data) const
 {
-	OnATBChanged.Broadcast(Data.NewValue);
+	OnATBChangedDelegate.Broadcast(Data.NewValue);
 }
 
 

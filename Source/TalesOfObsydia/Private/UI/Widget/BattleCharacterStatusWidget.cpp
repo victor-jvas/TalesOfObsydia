@@ -48,6 +48,8 @@ void UBattleCharacterStatusWidget::InitWidget(APlayerCharacter* InCharacter)
 	const auto ASC = Cast<UBaseAbilitySystemComponent>(InCharacter->GetAbilitySystemComponent());
 	SetAbilitySystemComponent(ASC);
 	CreateWidgetController();
+	OnWidgetControllerSet();
+	WidgetController->BroadcastInitialValues();
 }
 
 UObsydiaWidgetController* UBattleCharacterStatusWidget::CreateWidgetController()
