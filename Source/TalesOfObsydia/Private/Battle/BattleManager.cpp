@@ -113,8 +113,8 @@ void ABattleManager::StartActionBar()
 
 void ABattleManager::StartTurn() const
 {
-	const FInputModeUIOnly UIMode;
-	BattleController->SetInputMode(UIMode);
+	const FInputModeGameAndUI GameAndUIMode;
+	BattleController->SetInputMode(GameAndUIMode);
 
 	if (const auto BattleMenu = ShowBattleMenu())
 	{
