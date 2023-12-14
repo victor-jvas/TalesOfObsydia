@@ -7,6 +7,7 @@
 #include "Player/BasePlayerController.h"
 #include "BattleGameMode.generated.h"
 
+class ABattleManager;
 /**
  * 
  */
@@ -16,6 +17,13 @@ class TALESOFOBSYDIA_API ABattleGameMode : public ADefaultGameMode
 	GENERATED_BODY()
 
 	virtual void BeginPlay() override;
-	
+
+public:
+
+	TObjectPtr<ABattleManager> GetBattleManager() const;
+
+protected:
+
+	TObjectPtr<ABattleManager> BattleManager;
 	
 };

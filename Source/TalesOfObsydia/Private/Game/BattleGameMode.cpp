@@ -14,10 +14,15 @@ void ABattleGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	const ABattleManager* BattleManager = Cast<ABattleManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ABattleManager::StaticClass()));
+	BattleManager = Cast<ABattleManager>(UGameplayStatics::GetActorOfClass(GetWorld(), ABattleManager::StaticClass()));
 	//BattleManager->SpawnPlayerParty();
 
 	auto PlayerParty = BattleManager->GetPlayerParty();
 	
+}
+
+TObjectPtr<ABattleManager> ABattleGameMode::GetBattleManager() const
+{
+	return BattleManager;
 }
 
