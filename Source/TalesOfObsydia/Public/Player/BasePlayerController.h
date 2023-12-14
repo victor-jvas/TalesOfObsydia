@@ -39,7 +39,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> LookAction;
 
-	virtual void OnPossess(APawn* InPawn) override;
+	
 	
 	
 };

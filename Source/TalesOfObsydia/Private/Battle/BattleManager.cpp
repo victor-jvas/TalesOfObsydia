@@ -5,11 +5,14 @@
 
 
 #include "AbilitySystemComponent.h"
+#include "EngineUtils.h"
 #include "Abilities/Async/AbilityAsync_WaitGameplayTag.h"
 #include "AbilitySystem/BaseAttributeSet.h"
+#include "Battle/BattleCamera.h"
 #include "Battle/CharacterSpawner.h"
 #include "Blueprint/UserWidget.h"
 #include "Blueprint/WidgetTree.h"
+#include "Camera/CameraActor.h"
 #include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
 #include "Characters/BaseCharacter.h"
@@ -59,9 +62,11 @@ void ABattleManager::BeginPlay()
 	SpawnEnemies();
 	
 	OnSpawnFinished();
+	
+	//UGameplayStatics::GetActorOfClass(GetWorld());
+	//BattleController->SetViewTarget();
 
 	StartActionBar();
-	UE_LOG(LogTemp, Display, TEXT("Arrived Here"));
 	
 }
 
@@ -78,7 +83,6 @@ void ABattleManager::SpawnPlayerParty()
 			BattleController->UnPossess();
 		}
 	}
-	
 }
 
 void ABattleManager::SpawnEnemies()
@@ -122,7 +126,6 @@ void ABattleManager::StartTurn() const
 		MenuButton->SetUserFocus(BattleController);
 		
 	}
-	
 }
 
 void ABattleManager::AddToTurnOrder(const TObjectPtr<ABaseCharacter> Character)

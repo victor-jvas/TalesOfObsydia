@@ -50,7 +50,6 @@ void ABasePlayerController::Look(const FInputActionValue& Value)
 	AddPitchInput(InputAxisVector.Y);
 }
 
-
 void ABasePlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
@@ -61,12 +60,7 @@ void ABasePlayerController::SetupInputComponent()
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ABasePlayerController::Look);
 }
 
-void ABasePlayerController::OnPossess(APawn* InPawn)
-{
-	Super::OnPossess(InPawn);
 
-	
-}
 
 
 
