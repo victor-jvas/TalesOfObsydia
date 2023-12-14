@@ -5,14 +5,11 @@
 
 
 #include "AbilitySystemComponent.h"
-#include "EngineUtils.h"
 #include "Abilities/Async/AbilityAsync_WaitGameplayTag.h"
 #include "AbilitySystem/BaseAttributeSet.h"
-#include "Battle/BattleCamera.h"
 #include "Battle/CharacterSpawner.h"
 #include "Blueprint/UserWidget.h"
 #include "Blueprint/WidgetTree.h"
-#include "Camera/CameraActor.h"
 #include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
 #include "Characters/BaseCharacter.h"
@@ -63,8 +60,6 @@ void ABattleManager::BeginPlay()
 	
 	OnSpawnFinished();
 	
-	//UGameplayStatics::GetActorOfClass(GetWorld());
-	//BattleController->SetViewTarget();
 
 	StartActionBar();
 	
@@ -82,6 +77,7 @@ void ABattleManager::SpawnPlayerParty()
 			BattleController->Possess(Char);
 			BattleController->UnPossess();
 		}
+		
 	}
 }
 
