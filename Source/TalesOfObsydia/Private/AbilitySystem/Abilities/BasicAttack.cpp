@@ -7,6 +7,8 @@
 #include "Abilities/Tasks/AbilityTask_ApplyRootMotionMoveToActorForce.h"
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "Battle/BattleManager.h"
+#include "Characters/PlayerCharacter.h"
+#include "Characters/Components/TargetingComponent.h"
 #include "Game/BattleGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -16,7 +18,12 @@ void UBasicAttack::ActivateAbility(const FGameplayAbilitySpecHandle Handle, cons
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
 
 	
-	auto BattleManager = Cast<ABattleGameMode>(UGameplayStatics::GetGameMode(GetWorld()))->GetBattleManager();
+	APlayerCharacter* PC = Cast<APlayerCharacter>(ActorInfo->AvatarActor);
+
+	if (PC)
+	{
+		TArray<AEnemyCharacter*> EnemiesPawn = PC->GetTargetingComponent()->GetEnemiesPawns();
+	}
 	
 	
 	

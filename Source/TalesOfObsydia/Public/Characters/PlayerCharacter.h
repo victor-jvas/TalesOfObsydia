@@ -6,6 +6,7 @@
 #include "BaseCharacter.h"
 #include "PlayerCharacter.generated.h"
 
+class UTargetingComponent;
 class UCameraComponent;
 class USpringArmComponent;
 /**
@@ -25,6 +26,7 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	virtual void InitTurn() override;
+	virtual TObjectPtr<UTargetingComponent> GetTargetingComponent() {return TargetingComponent;}
 
 
 private:
@@ -33,7 +35,5 @@ private:
 	TObjectPtr<USpringArmComponent> SpringArmComponent;
 	UPROPERTY(EditAnywhere, Category = "Camera")
 	TObjectPtr<UCameraComponent> CameraComponent;
-	
-	
-	
+	TObjectPtr<UTargetingComponent> TargetingComponent;
 };

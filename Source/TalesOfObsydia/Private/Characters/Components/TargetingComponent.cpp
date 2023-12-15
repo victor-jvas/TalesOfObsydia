@@ -27,7 +27,9 @@ void UTargetingComponent::BeginPlay()
 
 TArray<TObjectPtr<AEnemyCharacter>> UTargetingComponent::GetEnemiesPawns() const
 {
-	return Cast<ABattleGameMode>(GetWorld()->GetAuthGameMode())->GetBattleManager()->GetEnemiesParty();
+	const ABattleGameMode* GameMode = Cast<ABattleGameMode>(GetWorld()->GetAuthGameMode());
+	auto Enemies = GameMode->GetBattleManager()->GetEnemiesParty();
+	return Enemies;
 }
 
 
