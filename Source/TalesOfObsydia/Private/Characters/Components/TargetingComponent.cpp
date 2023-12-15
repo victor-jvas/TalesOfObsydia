@@ -32,5 +32,9 @@ TArray<TObjectPtr<AEnemyCharacter>> UTargetingComponent::GetEnemiesPawns() const
 	return Enemies;
 }
 
+void UTargetingComponent::SelectTarget()
+{
+}
+
 
 

@@ -24,7 +24,7 @@ protected:
 
 public:	
 
-	UFUNCTION(BlueprintCallable, Category = "Targeting")
+	//UFUNCTION(BlueprintCallable, Category = "Targeting")
 	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesPawns() const; 
 	
 	UFUNCTION(BlueprintCallable, Category = "Targeting")
