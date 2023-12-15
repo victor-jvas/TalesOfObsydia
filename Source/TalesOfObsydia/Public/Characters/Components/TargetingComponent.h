@@ -7,6 +7,7 @@
 #include "TargetingComponent.generated.h"
 
 
+class ABaseCharacter;
 class AEnemyCharacter;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -29,6 +30,5 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "Targeting")
 	void SelectTarget();
-
-		
+	void StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Targets) const;
 };

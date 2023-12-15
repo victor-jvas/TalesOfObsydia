@@ -4,7 +4,10 @@
 #include "Characters/Components/TargetingComponent.h"
 
 #include "Battle/BattleManager.h"
+#include "Blueprint/UserWidget.h"
+#include "Blueprint/WidgetTree.h"
 #include "Game/BattleGameMode.h"
+#include "UI/Widget/TargetListWidget.h"
 
 
 UTargetingComponent::UTargetingComponent()
@@ -34,6 +37,17 @@ TArray<TObjectPtr<AEnemyCharacter>> UTargetingComponent::GetEnemiesPawns() const
 
 void UTargetingComponent::SelectTarget()
 {
+}
+
+void UTargetingComponent::StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Targets) const
+{
+	const ABattleGameMode* GM = Cast<ABattleGameMode>(GetWorld()->GetAuthGameMode());
+	const UUserWidget* BattleUI = GM->GetBattleManager()->GetBattleUI();
+
+	const auto TargetList = Cast<UTargetListWidget>(BattleUI->WidgetTree->FindWidget(FName("TargetListMenu")));
+	TargetList->SetVisibility(ESlateVisibility::Visible);
+
+	TargetList->UpdateTargetList(Targets);
 }
 
 

@@ -27,6 +27,8 @@ public:
 
 	APlayerController* GetBattleController() const {return BattleController;}
 
+	TObjectPtr<UUserWidget> GetBattleUI() const {return BattleUI;}
+
 	ABaseCharacter* GetCurrentTurnCharacter();
 	
 	virtual void BeginPlay() override;

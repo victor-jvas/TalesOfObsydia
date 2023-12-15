@@ -3,7 +3,10 @@
 
 #include "UI/Widget/TargetListWidget.h"
 
+#include "UnrealWidgetFwd.h"
+#include "Blueprint/WidgetTree.h"
 #include "Characters/BaseCharacter.h"
+#include "Characters/EnemyCharacter.h"
 #include "Components/Button.h"
 #include "Components/TextBlock.h"
 #include "Components/VerticalBox.h"
@@ -13,9 +16,9 @@ void UTargetListWidget::OnTargetButtonClicked()
 	UE_LOG(LogTemp, Display, TEXT("Target Button Clicked"));
 }
 
-void UTargetListWidget::UpdateTargetList(TArray<ABaseCharacter*> Targets)
+void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets)
 {
-	UVerticalBox* TargetList = Cast<UVerticalBox>(GetWidgetFromName(TEXT("TargetList")));
+	UVerticalBox* TargetList = Cast<UVerticalBox>(WidgetTree->FindWidget(FName("TargetList")));
 
 	if (TargetList)
 	{

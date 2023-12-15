@@ -6,6 +6,8 @@
 #include "Blueprint/UserWidget.h"
 #include "TargetListWidget.generated.h"
 
+class AEnemyCharacter;
+class UVerticalBox;
 class ABaseCharacter;
 /**
  * 
@@ -19,5 +21,5 @@ public:
 	UFUNCTION()
 	void OnTargetButtonClicked();
 	UFUNCTION(BlueprintCallable, Category = "TargetList")
-	void UpdateTargetList(TArray<ABaseCharacter*> Targets);
+	void UpdateTargetList(TArray<AEnemyCharacter*> Targets);
 };

@@ -26,10 +26,8 @@ void UBasicAttack::ActivateAbility(const FGameplayAbilitySpecHandle Handle, cons
 	{
 		//TArray<AEnemyCharacter*> EnemiesPawn = PC->GetTargetingComponent()->GetEnemiesPawns();
 		const auto Enemies = PC->GetTargetingComponent()->GetEnemiesPawns();
-		const auto TargetListWidget = CreateWidget<UTargetListWidget>(GetWorld(), UTargetListWidget::StaticClass());
-
-		TargetListWidget->AddToViewport();
-		TargetListWidget->UpdateTargetList(TArray<ABaseCharacter*>(Enemies));
+		PC->GetTargetingComponent()->StartTargeting(Enemies);
+		
 		
 	}
 	
