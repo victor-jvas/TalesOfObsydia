@@ -7,22 +7,28 @@
 #include "TargetingComponent.generated.h"
 
 
+class AEnemyCharacter;
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TALESOFOBSYDIA_API UTargetingComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
-	// Sets default values for this component's properties
+
 	UTargetingComponent();
 
 protected:
-	// Called when the game starts
+	
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION(BlueprintCallable, Category = "Targeting")
+	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesPawns() const; 
+	
+	UFUNCTION(BlueprintCallable, Category = "Targeting")
+	void SelectTarget();
 
 		
 };
