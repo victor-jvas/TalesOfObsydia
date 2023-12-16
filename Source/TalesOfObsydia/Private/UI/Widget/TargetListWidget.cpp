@@ -4,6 +4,7 @@
 #include "UI/Widget/TargetListWidget.h"
 
 #include "UnrealWidgetFwd.h"
+#include "Battle/BattleManager.h"
 #include "Blueprint/WidgetTree.h"
 #include "Characters/BaseCharacter.h"
 #include "Characters/EnemyCharacter.h"
@@ -14,6 +15,16 @@
 void UTargetListWidget::OnTargetButtonClicked()
 {
 	UE_LOG(LogTemp, Display, TEXT("Target Button Clicked"));
+}
+
+void UTargetListWidget::OnTargetButtonHovered()
+{
+	
+}
+
+void UTargetListWidget::InitializeButton(UButton* Button, AEnemyCharacter* Element)
+{
+	GetWorld()->GetFirstPlayerController()->SetViewTargetWithBlend(Element, 0.5f, EViewTargetBlendFunction::VTBlend_EaseInOut, 1.0f, false);
 }
 
 void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets)
@@ -30,11 +41,13 @@ void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets)
 
 			if (TargetButton)
 			{
+				InitializeButton(TargetButton, Element);
 				UTextBlock* TextBlock = NewObject<UTextBlock>(this, UTextBlock::StaticClass());
 				if (TextBlock)
 				{
 					TextBlock->SetText(FText::FromString(Element->GetName()));
 					TargetButton->OnClicked.AddDynamic(this, &UTargetListWidget::OnTargetButtonClicked);
+					TargetButton->OnHovered.AddDynamic(this);
 					TargetButton->AddChild(TextBlock);
 					TargetList->AddChild(TargetButton);
 				}

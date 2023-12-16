@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/Button.h"
 #include "TargetListWidget.generated.h"
 
 class AEnemyCharacter;
@@ -20,6 +21,10 @@ class TALESOFOBSYDIA_API UTargetListWidget : public UUserWidget
 public:
 	UFUNCTION()
 	void OnTargetButtonClicked();
+	UFUNCTION()
+	void OnTargetButtonHovered();
+
+	void InitializeButton(UButton* Button, AEnemyCharacter* Element);
 	UFUNCTION(BlueprintCallable, Category = "TargetList")
 	void UpdateTargetList(TArray<AEnemyCharacter*> Targets);
 };
