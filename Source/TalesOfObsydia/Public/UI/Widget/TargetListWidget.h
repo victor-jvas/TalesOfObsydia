@@ -19,15 +19,12 @@ class TALESOFOBSYDIA_API UTargetListWidget : public UUserWidget
 	GENERATED_BODY()
 
 public:
+	
 	UFUNCTION()
 	void OnTargetButtonClicked();
-	UFUNCTION()
-	void OnTargetButtonHovered(UObject* Widget);
-
-	void InitializeButton(UButton* Button, AEnemyCharacter* Element);
 	
 	UFUNCTION(BlueprintCallable, Category = "TargetList")
-	void UpdateTargetList(TArray<AEnemyCharacter*> Targets);
+	void UpdateTargetList(TArray<AEnemyCharacter*> Targets, AController* Controller);
 	
 private:
 

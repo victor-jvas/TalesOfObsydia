@@ -48,8 +48,8 @@ void UTargetingComponent::StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Tar
 
 	const auto TargetList = Cast<UTargetListWidget>(BattleUI->WidgetTree->FindWidget(FName("TargetListMenu")));
 	TargetList->SetVisibility(ESlateVisibility::Visible);
-	
-	TargetList->UpdateTargetList(Targets);
+	auto Ctrl = Cast<APlayerCharacter>(GetOwner())->GetController();
+	TargetList->UpdateTargetList(Targets, Ctrl);
 	TargetList->SetUserFocus(GM->GetBattleManager()->GetBattleController());
 	
 }

@@ -11,30 +11,17 @@
 #include "Components/Button.h"
 #include "Components/TextBlock.h"
 #include "Components/VerticalBox.h"
+#include "UI/Widget/SelectionButtonWidget.h"
 
 void UTargetListWidget::OnTargetButtonClicked()
 {
 	UE_LOG(LogTemp, Display, TEXT("Target Button Clicked"));
 }
 
-void UTargetListWidget::OnTargetButtonHovered(UObject* Widget)
-{
-	
-	UButton* Button = Cast<UButton>(Widget);
-	UE_LOG(LogTemp, Display, TEXT("Button Hovered"));
-	
-	
-}
 
-void UTargetListWidget::InitializeButton(UButton* Button, AEnemyCharacter* Element)
-{
-	GetWorld()->GetFirstPlayerController()->SetViewTargetWithBlend(Element, 0.5f, EViewTargetBlendFunction::VTBlend_EaseInOut, 1.0f, false);
-}
-
-void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets)
+void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets, AController* Controller)
 {
 	UVerticalBox* TargetList = Cast<UVerticalBox>(WidgetTree->FindWidget(FName("TargetList")));
-
 	if (TargetList)
 	{
 		TargetList->ClearChildren();
@@ -43,18 +30,22 @@ void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets)
 
 		for (const auto Element : Targets)
 		{
-			UButton* TargetButton = NewObject<UButton>(this, UButton::StaticClass());
+			
+			USelectionButtonWidget* TargetButton = NewObject<USelectionButtonWidget>(this, USelectionButtonWidget::StaticClass());
+
+			APlayerController* PlayerController = Cast<APlayerController>(Controller);
+			
+			TargetButton->InitializeButton(Element, PlayerController);
+			TargetButton->BindEvents();
 			TargetActors.Add(Element);
 
 			if (TargetButton)
 			{
-				InitializeButton(TargetButton, Element);
-				UTextBlock* TextBlock = NewObject<UTextBlock>(this, UTextBlock::StaticClass());
-				if (TextBlock)
+				if (UTextBlock* TextBlock = NewObject<UTextBlock>(this, UTextBlock::StaticClass()))
 				{
 					TextBlock->SetText(FText::FromString(Element->GetName()));
 					TargetButton->OnClicked.AddDynamic(this, &UTargetListWidget::OnTargetButtonClicked);
-					TargetButton->OnHovered.AddDynamic(this, &UTargetListWidget::OnTargetButtonClicked);
+					//TargetButton->OnHovered.AddDynamic(this, &UTargetListWidget::OnTargetButtonHovered);
 					TargetButton->AddChild(TextBlock);
 					TargetList->AddChild(TargetButton);
 					
