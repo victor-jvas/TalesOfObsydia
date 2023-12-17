@@ -13,10 +13,10 @@ class FOnButtonHoverEvent;
  * 
  */
 UCLASS()
-class TALESOFOBSYDIA_API USelectionButtonWidget : public UButton
+class TALESOFOBSYDIA_API USelectionButtonWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
 	UPROPERTY(VisibleAnywhere, Category = "TargetList")
 	AActor* ActorRef;
 
@@ -24,7 +24,11 @@ class TALESOFOBSYDIA_API USelectionButtonWidget : public UButton
 	APlayerController* Controller;
 
 	
+	
 public:
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	UButton* Button;
 
 	UFUNCTION()
 	void OnHoveredEvent();

@@ -7,6 +7,7 @@
 #include "Game/BattleGameMode.h"
 
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void USelectionButtonWidget::OnHoveredEvent()
 {
 
@@ -22,5 +23,9 @@ void USelectionButtonWidget::InitializeButton(AActor* Actor, APlayerController* 
 
 void USelectionButtonWidget::BindEvents()
 {
-	this->OnHovered.AddDynamic(this, &USelectionButtonWidget::OnHoveredEvent);
+	Button->OnHovered.AddDynamic(this, &USelectionButtonWidget::OnHoveredEvent);
+	this->OnAddedToFocusPath()
+
+	FFocusEvent* Event;
+	Event.
 }
