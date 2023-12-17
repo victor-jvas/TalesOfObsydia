@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/Components/TargetingComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/Components/TargetingComponent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/TargetListWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/TargetListWidget.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/Widget/TargetListWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/UI/Widget/TargetListWidget.h" afterDir="false" />
     </list>
@@ -271,7 +270,8 @@
       <workItem from="1702479143367" duration="15268000" />
       <workItem from="1702565289192" duration="8314000" />
       <workItem from="1702654530795" duration="294000" />
-      <workItem from="1702666357042" duration="10094000" />
+      <workItem from="1702666357042" duration="10741000" />
+      <workItem from="1702751717870" duration="1621000" />
     </task>
     <servers />
   </component>
@@ -291,8 +291,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/TargetListWidget.cpp</url>
-          <line>32</line>
+          <line>36</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/TalesOfObsydia/Private/UI/Widget/TargetListWidget.cpp</url>
+          <line>22</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

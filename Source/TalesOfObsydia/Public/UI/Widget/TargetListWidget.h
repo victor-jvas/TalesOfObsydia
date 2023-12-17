@@ -22,9 +22,15 @@ public:
 	UFUNCTION()
 	void OnTargetButtonClicked();
 	UFUNCTION()
-	void OnTargetButtonHovered();
+	void OnTargetButtonHovered(UObject* Widget);
 
 	void InitializeButton(UButton* Button, AEnemyCharacter* Element);
+	
 	UFUNCTION(BlueprintCallable, Category = "TargetList")
 	void UpdateTargetList(TArray<AEnemyCharacter*> Targets);
+	
+private:
+
+	UPROPERTY(VisibleAnywhere, Category = "TargetList")
+	TArray<AActor*> TargetActors;
 };
