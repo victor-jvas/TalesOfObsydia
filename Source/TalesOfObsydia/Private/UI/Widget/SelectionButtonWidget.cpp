@@ -3,8 +3,6 @@
 
 #include "UI/Widget/SelectionButtonWidget.h"
 
-#include "Battle/BattleManager.h"
-#include "Game/BattleGameMode.h"
 
 
 // ReSharper disable once CppMemberFunctionMayBeConst
@@ -17,15 +15,19 @@ void USelectionButtonWidget::OnHoveredEvent()
 
 void USelectionButtonWidget::InitializeButton(AActor* Actor, APlayerController* PlayerController)
 {
+	Button = NewObject<UButton>(this, UButton::StaticClass());
 	ActorRef = Actor;
 	Controller = PlayerController;
 }
 
 void USelectionButtonWidget::BindEvents()
 {
-	Button->OnHovered.AddDynamic(this, &USelectionButtonWidget::OnHoveredEvent);
-	this->OnAddedToFocusPath()
-
-	FFocusEvent* Event;
-	Event.
+	if (Button)
+	{
+		Button->OnHovered.AddDynamic(this, &USelectionButtonWidget::OnHoveredEvent);
+		UE_LOG(LogTemp, Display, TEXT("Button is NOT NULL"));
+	}
+	
 }
+
+

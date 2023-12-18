@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Blueprint/IUserObjectListEntry.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Button.h"
 #include "SelectionButtonWidget.generated.h"
@@ -13,7 +14,7 @@ class FOnButtonHoverEvent;
  * 
  */
 UCLASS()
-class TALESOFOBSYDIA_API USelectionButtonWidget : public UUserWidget
+class TALESOFOBSYDIA_API USelectionButtonWidget : public UUserWidget, public IUserObjectListEntry
 {
 	GENERATED_BODY()
 
@@ -22,6 +23,7 @@ class TALESOFOBSYDIA_API USelectionButtonWidget : public UUserWidget
 
 	UPROPERTY(VisibleAnywhere, Category = "TargetList")
 	APlayerController* Controller;
+
 
 	
 	
@@ -37,6 +39,8 @@ public:
 	
 	UFUNCTION()
 	void BindEvents();
+
+	
 	
 	
 };

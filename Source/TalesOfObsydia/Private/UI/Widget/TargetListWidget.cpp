@@ -9,6 +9,7 @@
 #include "Characters/BaseCharacter.h"
 #include "Characters/EnemyCharacter.h"
 #include "Components/Button.h"
+#include "Components/ListView.h"
 #include "Components/TextBlock.h"
 #include "Components/VerticalBox.h"
 #include "UI/Widget/SelectionButtonWidget.h"
@@ -21,10 +22,10 @@ void UTargetListWidget::OnTargetButtonClicked()
 
 void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets, AController* Controller)
 {
-	UVerticalBox* TargetList = Cast<UVerticalBox>(WidgetTree->FindWidget(FName("TargetList")));
+	UListView* TargetList = Cast<UListView>(WidgetTree->FindWidget(FName("TargetList")));
 	if (TargetList)
 	{
-		TargetList->ClearChildren();
+		TargetList->ClearListItems();
 
 		TargetActors.Empty();
 
@@ -44,10 +45,12 @@ void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets, ACont
 				if (UTextBlock* TextBlock = NewObject<UTextBlock>(this, UTextBlock::StaticClass()))
 				{
 					TextBlock->SetText(FText::FromString(Element->GetName()));
-					TargetButton->OnClicked.AddDynamic(this, &UTargetListWidget::OnTargetButtonClicked);
+					//TargetButton->OnClicked.AddDynamic(this, &UTargetListWidget::OnTargetButtonClicked);
 					//TargetButton->OnHovered.AddDynamic(this, &UTargetListWidget::OnTargetButtonHovered);
-					TargetButton->AddChild(TextBlock);
-					TargetList->AddChild(TargetButton);
+					TargetButton->Button->AddChild(TextBlock);
+					//TargetList->AddChild(TargetButton);
+
+					TargetList->AddItem(TargetButton);
 					
 				}
 			}
