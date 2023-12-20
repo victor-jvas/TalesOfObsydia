@@ -39,8 +39,9 @@ void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets, ACont
 			TargetButton->InitializeButton(Element, PlayerController);
 			TargetButton->BindEvents();
 			TargetActors.Add(Element);
+			TargetList->AddItem(TargetButton);
 
-			if (TargetButton)
+			/*if (TargetButton)
 			{
 				if (UTextBlock* TextBlock = NewObject<UTextBlock>(this, UTextBlock::StaticClass()))
 				{
@@ -53,7 +54,7 @@ void UTargetListWidget::UpdateTargetList(TArray<AEnemyCharacter*> Targets, ACont
 					TargetList->AddItem(TargetButton);
 					
 				}
-			}
+			}*/
 		}
 	}
 }

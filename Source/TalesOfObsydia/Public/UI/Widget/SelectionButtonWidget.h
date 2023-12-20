@@ -8,6 +8,7 @@
 #include "Components/Button.h"
 #include "SelectionButtonWidget.generated.h"
 
+class UTextBlock;
 class UButton;
 class FOnButtonHoverEvent;
 /**
@@ -24,14 +25,16 @@ class TALESOFOBSYDIA_API USelectionButtonWidget : public UUserWidget, public IUs
 	UPROPERTY(VisibleAnywhere, Category = "TargetList")
 	APlayerController* Controller;
 
-
-	
 	
 public:
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	UButton* Button;
+	
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidgetOptional))
+	UTextBlock* TextBlock;
 
+	
 	UFUNCTION()
 	void OnHoveredEvent();
 	

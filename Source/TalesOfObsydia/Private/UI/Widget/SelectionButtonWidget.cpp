@@ -3,6 +3,9 @@
 
 #include "UI/Widget/SelectionButtonWidget.h"
 
+#include "Components/ListView.h"
+#include "Components/ListViewBase.h"
+#include "Components/TextBlock.h"
 
 
 // ReSharper disable once CppMemberFunctionMayBeConst
@@ -16,8 +19,19 @@ void USelectionButtonWidget::OnHoveredEvent()
 void USelectionButtonWidget::InitializeButton(AActor* Actor, APlayerController* PlayerController)
 {
 	Button = NewObject<UButton>(this, UButton::StaticClass());
+	TextBlock = NewObject<UTextBlock>(this, UTextBlock::StaticClass());
+	
+	TextBlock->SetText(FText::FromString(Actor->GetName()));
+	TextBlock->SetVisibility(ESlateVisibility::Visible);
+	
+
+	Cast<UListView>(GetOwningListView())->OnEntryWidgetGenerated();
+
+	Button->SetContent(TextBlock);
+	
 	ActorRef = Actor;
 	Controller = PlayerController;
+	
 }
 
 void USelectionButtonWidget::BindEvents()
