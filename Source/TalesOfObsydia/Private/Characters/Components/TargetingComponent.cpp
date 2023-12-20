@@ -4,12 +4,8 @@
 #include "Characters/Components/TargetingComponent.h"
 
 #include "Battle/BattleManager.h"
-#include "Blueprint/UserWidget.h"
-#include "Blueprint/WidgetTree.h"
-#include "Characters/PlayerCharacter.h"
 #include "Game/BattleGameMode.h"
-#include "GameFramework/GameSession.h"
-#include "UI/Widget/TargetListWidget.h"
+#include "UI/Widget/BattleUIWidget.h"
 
 
 UTargetingComponent::UTargetingComponent()
@@ -21,12 +17,10 @@ UTargetingComponent::UTargetingComponent()
 }
 
 
-
 void UTargetingComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-
+	
 	
 }
 
@@ -43,15 +37,13 @@ void UTargetingComponent::SelectTarget()
 
 void UTargetingComponent::StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Targets) const
 {
-	const ABattleGameMode* GM = Cast<ABattleGameMode>(GetWorld()->GetAuthGameMode());
-	const UUserWidget* BattleUI = GM->GetBattleManager()->GetBattleUI();
+	const ABattleGameMode* GameMode = Cast<ABattleGameMode>(GetWorld()->GetAuthGameMode());
+	const UBattleUIWidget* BattleUI = Cast<UBattleUIWidget>(GameMode->GetBattleManager()->GetBattleUI());
 
-	const auto TargetList = Cast<UTargetListWidget>(BattleUI->WidgetTree->FindWidget(FName("TargetListMenu")));
-	TargetList->SetVisibility(ESlateVisibility::Visible);
-	auto Ctrl = Cast<APlayerCharacter>(GetOwner())->GetController();
-	TargetList->UpdateTargetList(Targets, Ctrl);
-	TargetList->SetUserFocus(GM->GetBattleManager()->GetBattleController());
-	
+	if (UTargetingMenu)
+	{
+		
+	}
 }
 
 

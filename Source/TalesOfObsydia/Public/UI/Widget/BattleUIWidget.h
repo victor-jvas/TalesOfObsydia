@@ -14,4 +14,5 @@ class TALESOFOBSYDIA_API UBattleUIWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+	
 };
