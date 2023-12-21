@@ -4,8 +4,11 @@
 #include "Characters/Components/TargetingComponent.h"
 
 #include "Battle/BattleManager.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
+#include "Blueprint/WidgetTree.h"
 #include "Game/BattleGameMode.h"
 #include "UI/Widget/BattleUIWidget.h"
+#include "UI/Widget/TargetListWidget.h"
 
 
 UTargetingComponent::UTargetingComponent()
@@ -38,11 +41,16 @@ void UTargetingComponent::SelectTarget()
 void UTargetingComponent::StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Targets) const
 {
 	const ABattleGameMode* GameMode = Cast<ABattleGameMode>(GetWorld()->GetAuthGameMode());
-	const UBattleUIWidget* BattleUI = Cast<UBattleUIWidget>(GameMode->GetBattleManager()->GetBattleUI());
+	TArray<UUserWidget*> OutWidgets;
+	UWidgetBlueprintLibrary::GetAllWidgetsOfClass(GetWorld(), OutWidgets, UBattleUIWidget::StaticClass());
 
-	if (UTargetingMenu)
+	auto BattleUI = Cast<UBattleUIWidget>(OutWidgets[0]);
+
+	if (UTargetListWidget* TargetListWidget = CreateWidget<UTargetListWidget>(GetWorld()))
 	{
-		
+		TargetListWidget->SetTargetableEnemies(Targets);
+
+		BattleUI->AddWidgetToViewPort(TargetListWidget);
 	}
 }
 

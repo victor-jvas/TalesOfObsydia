@@ -50,6 +50,7 @@ void UBattleCharacterStatusWidget::InitWidget(APlayerCharacter* InCharacter)
 	CreateWidgetController();
 	OnWidgetControllerSet();
 	WidgetController->BroadcastInitialValues();
+	SetVisibility(ESlateVisibility::Visible);
 }
 
 UObsydiaWidgetController* UBattleCharacterStatusWidget::CreateWidgetController()

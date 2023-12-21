@@ -4,5 +4,7 @@
 #include "UI/Widget/BattleUIWidget.h"
 
 
-
-	
+void UBattleUIWidget::AddWidgetToViewPort(UUserWidget* WidgetToAdd)
+{
+	WidgetToAdd->AddToViewport();
+}
