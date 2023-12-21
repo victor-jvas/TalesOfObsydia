@@ -15,5 +15,5 @@ class TALESOFOBSYDIA_API UBasicAttack : public UBaseGameplayAbility
 	GENERATED_BODY()
 
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
-	
+	void OnMoveFinished();
 };
