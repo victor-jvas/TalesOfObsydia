@@ -26,7 +26,12 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	virtual void InitTurn() override;
-	virtual TObjectPtr<UTargetingComponent> GetTargetingComponent() {return TargetingComponent;}
+	UFUNCTION(BlueprintCallable, Category = "Components")
+	virtual UTargetingComponent* GetTargetingComponent() {return TargetingComponent;}
+
+
+	UPROPERTY(EditAnywhere, Category = Anim)
+	UAnimMontage* MovementAnimation;
 
 
 private:

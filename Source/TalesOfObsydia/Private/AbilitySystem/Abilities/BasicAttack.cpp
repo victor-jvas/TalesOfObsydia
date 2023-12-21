@@ -3,11 +3,12 @@
 
 #include "AbilitySystem/Abilities/BasicAttack.h"
 
+#include "AbilitySystemBlueprintLibrary.h"
 #include "Abilities/Tasks/AbilityTask_ApplyRootMotionMoveToActorForce.h"
+#include "Abilities/Tasks/AbilityTask_MoveToLocation.h"
 #include "Characters/EnemyCharacter.h"
 #include "Characters/PlayerCharacter.h"
 #include "Characters/Components/TargetingComponent.h"
-#include "GameFramework/CharacterMovementComponent.h"
 
 
 void UBasicAttack::ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
@@ -15,19 +16,17 @@ void UBasicAttack::ActivateAbility(const FGameplayAbilitySpecHandle Handle, cons
 {
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
 
+
 	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(ActorInfo->AvatarActor);
-	const AEnemyCharacter* TargetEnemy = PlayerCharacter->GetTargetingComponent()->Target;
-	
 	AController* PlayerController = PlayerCharacter->GetController();
-	const UCharacterMovementComponent* MovementComponent = PlayerCharacter->GetCharacterMovement();
+	const auto Target = PlayerCharacter->GetTargetingComponent()->Target;
+	const auto TargetLocation = Target->GetActorLocation();
 
-	// Set the player character to face the target enemy
-	const FRotator TargetRotation = (TargetEnemy->GetActorLocation() - PlayerCharacter->GetActorLocation()).Rotation();
-	PlayerCharacter->SetActorRotation(TargetRotation);
+	UAbilityTask_MoveToLocation* MoveToLocationTask = UAbilityTask_MoveToLocation::MoveToLocation(this, FName("MoveToAttack"), TargetLocation, 5.f, nullptr, nullptr);
 
-	// Move the player character towards the target enemy
-	const FVector DirectionToEnemy = (TargetEnemy->GetActorLocation() - PlayerCharacter->GetActorLocation()).GetSafeNormal();
-	const FVector MoveVector = DirectionToEnemy * MovementComponent->GetMaxSpeed();
-	PlayerCharacter->AddMovementInput(MoveVector);
+	
+	MoveToLocationTask->ReadyForActivation();
+
+	auto ret = PlayerCharacter->PlayAnimMontage(PlayerCharacter->MovementAnimation);
 	
 }
