@@ -26,7 +26,10 @@ protected:
 public:	
 
 	//UFUNCTION(BlueprintCallable, Category = "Targeting")
-	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesPawns() const; 
+	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesPawns() const;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Targeting")
+	AEnemyCharacter* Target;
 	
 	UFUNCTION(BlueprintCallable, Category = "Targeting")
 	void SelectTarget();
