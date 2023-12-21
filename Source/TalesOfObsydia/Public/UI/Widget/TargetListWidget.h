@@ -16,18 +16,6 @@ class TALESOFOBSYDIA_API UTargetListWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-public:
-
-	UFUNCTION(BlueprintCallable, Category = "Targeting")
-	void SetTargetableEnemies(TArray<AEnemyCharacter*> Targets);
 
 
-	UFUNCTION(BlueprintCallable, Category = "Targeting")
-	void OnTargetSelected(AActor* SelectedTarget);
-
-private:
-
-	UPROPERTY(meta = (BindWidget))
-	UVerticalBox* TargetList;
-	
 };

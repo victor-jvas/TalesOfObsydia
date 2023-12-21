@@ -43,15 +43,8 @@ void UTargetingComponent::StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Tar
 	const ABattleGameMode* GameMode = Cast<ABattleGameMode>(GetWorld()->GetAuthGameMode());
 	TArray<UUserWidget*> OutWidgets;
 	UWidgetBlueprintLibrary::GetAllWidgetsOfClass(GetWorld(), OutWidgets, UBattleUIWidget::StaticClass());
-
-	auto BattleUI = Cast<UBattleUIWidget>(OutWidgets[0]);
-
-	if (UTargetListWidget* TargetListWidget = CreateWidget<UTargetListWidget>(GetWorld()))
-	{
-		TargetListWidget->SetTargetableEnemies(Targets);
-
-		BattleUI->AddWidgetToViewPort(TargetListWidget);
-	}
+	
+		
 }
 
 
