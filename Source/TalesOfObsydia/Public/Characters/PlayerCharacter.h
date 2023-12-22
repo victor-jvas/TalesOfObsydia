@@ -29,11 +29,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Components")
 	virtual UTargetingComponent* GetTargetingComponent() {return TargetingComponent;}
 
-
-	UPROPERTY(EditAnywhere, Category = Anim)
-	UAnimMontage* MovementAnimation;
-
-
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Camera")
