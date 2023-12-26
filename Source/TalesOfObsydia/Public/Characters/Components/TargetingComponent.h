@@ -34,4 +34,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Targeting")
 	void SelectTarget();
 	void StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Targets) const;
+	
+	UFUNCTION(BlueprintCallable, Category = "Targeting")
+	AEnemyCharacter* GetTarget() const {return Target;}
 };
