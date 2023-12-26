@@ -27,7 +27,6 @@ AEnemyCharacter::AEnemyCharacter()
 	CollisionSphere = CreateDefaultSubobject<USphereComponent>("Collision Sphere");
 	CollisionSphere->SetVisibility(true);
 	CollisionSphere->SetSphereRadius(50.f);
-
 	
 	
 }

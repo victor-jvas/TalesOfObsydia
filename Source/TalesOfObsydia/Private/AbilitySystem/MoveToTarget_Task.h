@@ -6,6 +6,9 @@
 #include "Abilities/Tasks/AbilityTask.h"
 #include "MoveToTarget_Task.generated.h"
 
+class APlayerCharacter;
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTargetReachedSignature);
+
 /**
  * 
  */
@@ -16,6 +19,20 @@ class UMoveToTarget_Task : public UAbilityTask
 
 public:
 
-	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks", meta = (DisplayName = "MoveToTarget" ,HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "true"))
+	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks", meta = (DisplayName = "Move To Target" ,HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "true"))
 	static UMoveToTarget_Task* CreateMoveToTarget(UGameplayAbility* OwningAbility);
+	
+	
+	UPROPERTY(BlueprintAssignable)
+	FTargetReachedSignature OnTargetReached;
+
+private:
+
+	virtual void Activate() override;
+
+	virtual void TickTask(float DeltaTime) override;
+
+	APlayerCharacter* PC;
+	FVector FinalLocation;
+	FVector InitialLocation;
 };
