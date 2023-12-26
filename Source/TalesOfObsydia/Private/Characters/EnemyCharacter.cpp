@@ -4,11 +4,13 @@
 #include "Characters/EnemyCharacter.h"
 
 
+#include "AIHelpers.h"
+#include "Abilities/Tasks/AbilityTask_MoveToLocation.h"
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
 #include "Characters/PlayerCharacter.h"
 #include "Components/SphereComponent.h"
-
+#include "Tasks/AITask_MoveTo.h"
 
 
 AEnemyCharacter::AEnemyCharacter()
@@ -25,6 +27,7 @@ AEnemyCharacter::AEnemyCharacter()
 	CollisionSphere = CreateDefaultSubobject<USphereComponent>("Collision Sphere");
 	CollisionSphere->SetVisibility(true);
 	CollisionSphere->SetSphereRadius(50.f);
+
 	
 	
 }

@@ -9,10 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/Abilities/BasickAttack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/Abilities/BasicAttack.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/Abilities/BasickAttack.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/AbilitySystem/Abilities/BasicAttack.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/Components/TargetingComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/Components/TargetingComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +180,8 @@
       <workItem from="1703096629068" duration="13109000" />
       <workItem from="1703167988471" duration="15435000" />
       <workItem from="1703450672185" duration="1783000" />
-      <workItem from="1703533229764" duration="4022000" />
+      <workItem from="1703533229764" duration="4629000" />
+      <workItem from="1703608301418" duration="3743000" />
     </task>
     <servers />
   </component>
