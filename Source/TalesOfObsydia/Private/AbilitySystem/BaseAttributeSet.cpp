@@ -10,6 +10,12 @@ UBaseAttributeSet::UBaseAttributeSet()
 {
 }
 
+void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
+{
+	//TODO: Implement this method to deal damage to character
+}
+
+
 void UBaseAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);

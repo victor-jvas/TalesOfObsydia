@@ -22,9 +22,13 @@ class TALESOFOBSYDIA_API UBaseAttributeSet : public UAttributeSet
 {
 	GENERATED_BODY()
 
+	
+
 public:
 
 	UBaseAttributeSet();
+
+	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
 protected:
 
@@ -72,6 +76,11 @@ public:
 	UPROPERTY(ReplicatedUsing = OnRep_ATBProgress, BlueprintReadOnly, Category = "Attribute | Secondary")
 	FGameplayAttributeData ATBProgress;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, ATBProgress)
+
+	// Meta Attributes
+	
+	FGameplayAttributeData IncomingDamage;
+	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, IncomingDamage)
 
 
 
