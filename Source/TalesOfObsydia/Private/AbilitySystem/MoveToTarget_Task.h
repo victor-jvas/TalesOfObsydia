@@ -4,10 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Abilities/Tasks/AbilityTask.h"
+#include "Characters/BaseCharacter.h"
 #include "MoveToTarget_Task.generated.h"
 
+class ABaseCharacter;
 class APlayerCharacter;
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTargetReachedSignature);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTargetReachedSignature, ABaseCharacter*, Character);
+
 
 /**
  * 

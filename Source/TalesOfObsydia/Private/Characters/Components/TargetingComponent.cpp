@@ -8,7 +8,6 @@
 #include "Blueprint/WidgetTree.h"
 #include "Game/BattleGameMode.h"
 #include "UI/Widget/BattleUIWidget.h"
-#include "UI/Widget/TargetListWidget.h"
 
 
 UTargetingComponent::UTargetingComponent()

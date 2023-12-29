@@ -39,7 +39,7 @@ void UMoveToTarget_Task::TickTask(float DeltaTime)
 	
 	if (FVector::Dist(PC->GetActorLocation(), FinalLocation) < 150)
 	{
-		OnTargetReached.Broadcast();
+		OnTargetReached.Broadcast(PC);
 		EndTask();
 	}
 }
