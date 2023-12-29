@@ -37,10 +37,9 @@ void UMoveToTarget_Task::TickTask(float DeltaTime)
 	UE_LOG(LogTemp, Display, TEXT("Ticking"));
 
 	
-	if (FVector::Dist(PC->GetActorLocation(), FinalLocation) < 100)
+	if (FVector::Dist(PC->GetActorLocation(), FinalLocation) < 150)
 	{
 		OnTargetReached.Broadcast();
 		EndTask();
-		
 	}
 }
