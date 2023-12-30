@@ -26,14 +26,17 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	virtual void InitTurn() override;
+
 	UFUNCTION(BlueprintCallable, Category = "Components")
 	virtual UTargetingComponent* GetTargetingComponent() {return TargetingComponent;}
-
+	
+	virtual AActor* GetTargetedActor() override;
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Camera")
 	TObjectPtr<USpringArmComponent> SpringArmComponent;
 	UPROPERTY(EditAnywhere, Category = "Camera")
 	TObjectPtr<UCameraComponent> CameraComponent;
+	UPROPERTY(EditAnywhere, Category = "Components")
 	TObjectPtr<UTargetingComponent> TargetingComponent;
 };

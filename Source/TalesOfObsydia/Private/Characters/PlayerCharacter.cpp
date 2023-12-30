@@ -5,11 +5,11 @@
 
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "Camera/CameraComponent.h"
+
 #include "Characters/Components/TargetingComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "Logging/StructuredLog.h"
 #include "Player/BasePlayerState.h"
 
 
@@ -66,6 +66,12 @@ void APlayerCharacter::OnRep_PlayerState()
 void APlayerCharacter::InitTurn()
 {
 		
+}
+
+AActor* APlayerCharacter::GetTargetedActor()
+{
+	return TargetingComponent->GetTarget();
+	
 }
 
 void APlayerCharacter::InitAbilitySystemInfo()

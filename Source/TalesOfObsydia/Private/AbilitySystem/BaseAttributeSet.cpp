@@ -4,6 +4,7 @@
 #include "AbilitySystem/BaseAttributeSet.h"
 
 #include "AbilitySystemComponent.h"
+#include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
 
 UBaseAttributeSet::UBaseAttributeSet()
@@ -12,7 +13,23 @@ UBaseAttributeSet::UBaseAttributeSet()
 
 void UBaseAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
 {
-	//TODO: Implement this method to deal damage to character
+	Super::PostGameplayEffectExecute(Data);
+
+	if (Data.EvaluatedData.Attribute == GetIncomingDamageAttribute())
+	{
+		const float LocalDamage = GetIncomingDamage();
+		SetIncomingDamage(0.f);
+		if (LocalDamage > 0.f)
+		{
+			const float NewHealth = GetHealth() - LocalDamage;
+			SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
+
+			if (NewHealth == 0)
+			{
+				UE_LOG(LogTemp, Display, TEXT("Character died"));
+			}
+		}
+	}
 }
 
 

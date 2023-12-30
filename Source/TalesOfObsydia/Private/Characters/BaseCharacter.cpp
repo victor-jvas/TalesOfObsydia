@@ -35,6 +35,12 @@ void ABaseCharacter::AddCharacterAbilities()
 	}
 }
 
+AActor* ABaseCharacter::GetTargetedActor()
+{
+	return nullptr;
+}
+
+
 void ABaseCharacter::SetDefaultAttributes()
 {
 	ApplyEffectToSelf(InitPrimaryAttributesEffect, 1.f);
@@ -53,7 +59,7 @@ void ABaseCharacter::ApplyEffectToSelf(const TSubclassOf<UGameplayEffect> Effect
 
 void ABaseCharacter::InitTurn()
 {
-	UE_LOG(LogTemp, Display, TEXT("InitTurn Called on Base Character"));
+	
 }
 
 void ABaseCharacter::IsTurnReady()

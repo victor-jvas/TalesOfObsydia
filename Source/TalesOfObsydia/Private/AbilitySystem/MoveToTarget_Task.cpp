@@ -24,7 +24,7 @@ void UMoveToTarget_Task::Activate()
 
 	APlayerController* PlayerController = Cast<APlayerController>(PC->GetController());
 
-	const AEnemyCharacter* Target = PC->GetTargetingComponent()->GetTarget();
+	const AActor* Target = PC->GetTargetingComponent()->GetTarget();
 
 	FinalLocation = Target->GetActorLocation();
 

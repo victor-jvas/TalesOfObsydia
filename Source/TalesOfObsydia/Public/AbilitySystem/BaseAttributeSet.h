@@ -39,46 +39,47 @@ public:
 
 	// Primary Attributes
 
-	UPROPERTY(ReplicatedUsing = OnRep_Speed, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_Speed, BlueprintReadOnly, Category = "Attribute|Primary")
 	FGameplayAttributeData Vigor;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Vigor)
 
-	UPROPERTY(ReplicatedUsing = OnRep_Spirit, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_Spirit, BlueprintReadOnly, Category = "Attribute|Primary")
 	FGameplayAttributeData Spirit;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Spirit)
 
-	UPROPERTY(ReplicatedUsing = OnRep_Agility, BlueprintReadOnly, Category = "Attribute | Primary")
+	UPROPERTY(ReplicatedUsing = OnRep_Agility, BlueprintReadOnly, Category = "Attribute|Primary")
 	FGameplayAttributeData Agility;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Agility)
 
 	// Secondary Attributes
 	
-	UPROPERTY(ReplicatedUsing = OnRep_Health, BlueprintReadOnly, Category = "Attribute | Secondary")
+	UPROPERTY(ReplicatedUsing = OnRep_Health, BlueprintReadOnly, Category = "Attribute|Secondary")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Health)
 
-	UPROPERTY(ReplicatedUsing = OnRep_MaxHealth, BlueprintReadOnly, Category = "Attribute | Secondary")
+	UPROPERTY(ReplicatedUsing = OnRep_MaxHealth, BlueprintReadOnly, Category = "Attribute|Secondary")
 	FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, MaxHealth)
 	
-	UPROPERTY(ReplicatedUsing = OnRep_Mana, BlueprintReadOnly, Category = "Attribute | Secondary")
+	UPROPERTY(ReplicatedUsing = OnRep_Mana, BlueprintReadOnly, Category = "Attribute|Secondary")
 	FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Mana)
 
-	UPROPERTY(ReplicatedUsing = OnRep_MaxMana, BlueprintReadOnly, Category = "Attribute | Secondary")
+	UPROPERTY(ReplicatedUsing = OnRep_MaxMana, BlueprintReadOnly, Category = "Attribute|Secondary")
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, MaxMana)
 
-	UPROPERTY(ReplicatedUsing = OnRep_Speed, BlueprintReadOnly, Category = "Attribute | Secondary")
+	UPROPERTY(ReplicatedUsing = OnRep_Speed, BlueprintReadOnly, Category = "Attribute|Secondary")
 	FGameplayAttributeData Speed;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, Speed)
 
-	UPROPERTY(ReplicatedUsing = OnRep_ATBProgress, BlueprintReadOnly, Category = "Attribute | Secondary")
+	UPROPERTY(ReplicatedUsing = OnRep_ATBProgress, BlueprintReadOnly, Category = "Attribute|Secondary")
 	FGameplayAttributeData ATBProgress;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, ATBProgress)
 
 	// Meta Attributes
-	
+
+	UPROPERTY(BlueprintReadOnly, Category = "Attribute|Meta")
 	FGameplayAttributeData IncomingDamage;
 	ATTRIBUTE_ACCESSORS(UBaseAttributeSet, IncomingDamage)
 

@@ -23,18 +23,20 @@ protected:
 	
 	virtual void BeginPlay() override;
 
+	UPROPERTY(BlueprintReadWrite, Category = "Targeting")
+	AActor* Target;
+
 public:	
 
 	//UFUNCTION(BlueprintCallable, Category = "Targeting")
 	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesPawns() const;
 
-	UPROPERTY(BlueprintReadWrite, Category = "Targeting")
-	AEnemyCharacter* Target;
+	
 	
 	UFUNCTION(BlueprintCallable, Category = "Targeting")
 	void SelectTarget();
 	void StartTargeting(TArray<TObjectPtr<AEnemyCharacter>> Targets) const;
 	
 	UFUNCTION(BlueprintCallable, Category = "Targeting")
-	AEnemyCharacter* GetTarget() const {return Target;}
+	AActor* GetTarget() const {return Target;}
 };

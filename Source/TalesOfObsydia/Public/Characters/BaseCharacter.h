@@ -30,6 +30,9 @@ public:
 	virtual void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> EffectClass, float Level);
 	virtual void AddCharacterAbilities();
 
+	UFUNCTION(BlueprintCallable, Category = "Targeting")
+	virtual AActor* GetTargetedActor();
+
 protected:
 	
 	virtual void BeginPlay() override;
