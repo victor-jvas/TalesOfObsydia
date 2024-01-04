@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Abilities/Tasks/AbilityTask.h"
 #include "Characters/BaseCharacter.h"
-#include "MoveToTarget_Task.generated.h"
+#include "AbilityTask_CustomMoveToLocation.generated.h"
 
 class ABaseCharacter;
 class APlayerCharacter;
@@ -20,14 +20,21 @@ class UMoveToTarget_Task : public UAbilityTask
 {
 	GENERATED_BODY()
 
-public:
-
-	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks", meta = (DisplayName = "Move To Target" ,HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "true"))
-	static UMoveToTarget_Task* CreateMoveToTarget(UGameplayAbility* OwningAbility);
-	
-	
 	UPROPERTY(BlueprintAssignable)
 	FTargetReachedSignature OnTargetReached;
+
+public:
+
+	/**
+	 *Move the character to a previously selected target
+	 */ 
+	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks", meta = (DisplayName = "Custom Move To Target" ,HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "true"))
+	// ReSharper disable once CppUEBlueprintCallableFunctionUnused
+	static UMoveToTarget_Task* CustomMoveToTarget(UGameplayAbility* OwningAbility);
+	
+	
+	
+
 
 private:
 
@@ -35,7 +42,11 @@ private:
 
 	virtual void TickTask(float DeltaTime) override;
 
+
+	UPROPERTY()
 	APlayerCharacter* PC;
-	FVector FinalLocation;
+	
+	FVector Destination;
 	FVector InitialLocation;
+	
 };
