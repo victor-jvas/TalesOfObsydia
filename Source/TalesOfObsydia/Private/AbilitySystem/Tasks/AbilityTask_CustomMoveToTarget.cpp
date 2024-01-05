@@ -8,9 +8,9 @@
 #include "Characters/PlayerCharacter.h"
 
 
-UMoveToTarget_Task* UMoveToTarget_Task::CustomMoveToTarget(UGameplayAbility* OwningAbility)
+UAbilityTask_CustomMoveToTarget* UAbilityTask_CustomMoveToTarget::CustomMoveToTarget(UGameplayAbility* OwningAbility)
 {
-	UMoveToTarget_Task* MyObj = NewAbilityTask<UMoveToTarget_Task>(OwningAbility);
+	UAbilityTask_CustomMoveToTarget* MyObj = NewAbilityTask<UAbilityTask_CustomMoveToTarget>(OwningAbility);
 	MyObj->bTickingTask = true;
 	MyObj->bSimulatedTask = true;
 	UE_LOG(LogTemp, Display, TEXT("Entered CreateMoveToTarget"));
@@ -18,13 +18,13 @@ UMoveToTarget_Task* UMoveToTarget_Task::CustomMoveToTarget(UGameplayAbility* Own
 	return MyObj;
 }
 
-void UMoveToTarget_Task::Activate()
+void UAbilityTask_CustomMoveToTarget::Activate()
 {
 	PC = Cast<APlayerCharacter>(Ability->GetAvatarActorFromActorInfo());
 
-	InitialLocation = PC->GetActorLocation();
+	InitialLocation = PC->GetActorTransform();
 
-	APlayerController* PlayerController = Cast<APlayerController>(PC->GetController());
+	AController* PlayerController = Cast<APlayerController>(PC->GetController());
 
 	const AActor* Target = PC->GetTargetedActor();
 	
@@ -35,14 +35,14 @@ void UMoveToTarget_Task::Activate()
 	
 }
 
-void UMoveToTarget_Task::TickTask(float DeltaTime)
+void UAbilityTask_CustomMoveToTarget::TickTask(float DeltaTime)
 {
 	UE_LOG(LogTemp, Display, TEXT("Ticking"));
 
 	
 	if (FVector::Dist(PC->GetActorLocation(), Destination) < 150)
 	{
-		OnTargetReached.Broadcast(PC);
+		OnTargetReached.Broadcast(PC, InitialLocation);
 		EndTask();
 	}
 }

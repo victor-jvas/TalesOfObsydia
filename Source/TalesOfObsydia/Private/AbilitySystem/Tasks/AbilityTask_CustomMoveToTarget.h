@@ -9,14 +9,14 @@
 
 class ABaseCharacter;
 class APlayerCharacter;
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTargetReachedSignature, ABaseCharacter*, Character);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FTargetReachedSignature, ABaseCharacter*, Character, FTransform, InitialLocation);
 
 
 /**
  * 
  */
 UCLASS()
-class UMoveToTarget_Task : public UAbilityTask
+class UAbilityTask_CustomMoveToTarget : public UAbilityTask
 {
 	GENERATED_BODY()
 
@@ -30,7 +30,7 @@ public:
 	 */ 
 	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks", meta = (DisplayName = "Custom Move To Target" ,HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "true"))
 	// ReSharper disable once CppUEBlueprintCallableFunctionUnused
-	static UMoveToTarget_Task* CustomMoveToTarget(UGameplayAbility* OwningAbility);
+	static UAbilityTask_CustomMoveToTarget* CustomMoveToTarget(UGameplayAbility* OwningAbility);
 	
 	
 	
@@ -41,12 +41,10 @@ private:
 	virtual void Activate() override;
 
 	virtual void TickTask(float DeltaTime) override;
-
-
-	UPROPERTY()
-	APlayerCharacter* PC;
+	
+	TObjectPtr<APlayerCharacter> PC;
 	
 	FVector Destination;
-	FVector InitialLocation;
+	FTransform InitialLocation;
 	
 };
