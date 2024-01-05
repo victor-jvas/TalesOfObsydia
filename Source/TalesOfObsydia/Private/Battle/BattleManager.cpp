@@ -25,7 +25,7 @@ ABattleManager::ABattleManager()
 
 }
 
-void ABattleManager::BindSpawnEvents()
+/*void ABattleManager::BindSpawnEvents()
 {
 	for (const auto SpawnPoint : PartySpawnPoint)
 	{
@@ -36,7 +36,7 @@ void ABattleManager::BindSpawnEvents()
 	{
 		//SpawnPoint->OnCharacterSpawnedDelegate.AddUniqueDynamic(this, &ABattleManager::AddToCombat);
 	}
-}
+}*/
 
 ABaseCharacter* ABattleManager::GetCurrentTurnCharacter()
 {

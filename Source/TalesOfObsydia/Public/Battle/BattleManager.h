@@ -44,7 +44,7 @@ public:
 
 	virtual void StartActionBar();
 
-	void BindSpawnEvents();
+	//void BindSpawnEvents();
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnSpawnFinished();
