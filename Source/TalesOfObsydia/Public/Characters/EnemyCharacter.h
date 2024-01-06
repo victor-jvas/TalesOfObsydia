@@ -6,6 +6,7 @@
 #include "Characters/BaseCharacter.h"
 #include "EnemyCharacter.generated.h"
 
+class UTargetingComponent;
 class USphereComponent;
 class UBaseAbilitySystemComponent;
 class UBaseAttributeSet;
@@ -30,6 +31,9 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+
+	UPROPERTY(EditAnywhere, Category = "Components")
+	TObjectPtr<UTargetingComponent> TargetingComponent;
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<USphereComponent> CollisionSphere;

@@ -7,6 +7,7 @@
 #include "TargetingComponent.generated.h"
 
 
+class UWidgetComponent;
 class ABaseCharacter;
 class AEnemyCharacter;
 
@@ -15,9 +16,10 @@ class TALESOFOBSYDIA_API UTargetingComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
-
 	UTargetingComponent();
+		
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UWidgetComponent> TargetWidget;
 
 protected:
 	
@@ -30,8 +32,6 @@ public:
 
 	//UFUNCTION(BlueprintCallable, Category = "Targeting")
 	TArray<TObjectPtr<AEnemyCharacter>> GetEnemiesPawns() const;
-
-	
 	
 	UFUNCTION(BlueprintCallable, Category = "Targeting")
 	void SelectTarget();

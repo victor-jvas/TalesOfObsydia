@@ -9,6 +9,7 @@
 #include "AbilitySystem/BaseAbilitySystemComponent.h"
 #include "AbilitySystem/BaseAttributeSet.h"
 #include "Characters/PlayerCharacter.h"
+#include "Characters/Components/TargetingComponent.h"
 #include "Components/SphereComponent.h"
 #include "Tasks/AITask_MoveTo.h"
 
@@ -27,7 +28,8 @@ AEnemyCharacter::AEnemyCharacter()
 	CollisionSphere = CreateDefaultSubobject<USphereComponent>("Collision Sphere");
 	CollisionSphere->SetVisibility(true);
 	CollisionSphere->SetSphereRadius(50.f);
-	
+
+	TargetingComponent = CreateDefaultSubobject<UTargetingComponent>("Targeting Component");
 	
 }
 

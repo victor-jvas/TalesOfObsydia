@@ -147,7 +147,7 @@ int32 ABattleManager::GetElementIndex(APlayerCharacter* PlayerCharacter)
 {
 	for (int i = 0; i < PlayerParty.Num(); i++)
 	{
-		if (PlayerCharacter == PlayerParty[0])
+		if (PlayerCharacter == PlayerParty[i])
 		{
 			return i;
 		}

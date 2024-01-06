@@ -6,16 +6,15 @@
 #include "Battle/BattleManager.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Blueprint/WidgetTree.h"
+#include "Components/WidgetComponent.h"
 #include "Game/BattleGameMode.h"
 #include "UI/Widget/BattleUIWidget.h"
 
 
-UTargetingComponent::UTargetingComponent()
+UTargetingComponent::UTargetingComponent(): Target(nullptr)
 {
-
 	PrimaryComponentTick.bCanEverTick = true;
-
-
+	TargetWidget = CreateDefaultSubobject<UWidgetComponent>("Crosshair");
 }
 
 
