@@ -9,11 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6a154b05-878d-4dec-8eb1-de74624468d7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TalesOfObsydia/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Battle/BattleManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/Components/TargetingComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/Components/TargetingComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Private/Characters/EnemyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/Components/TargetingComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/Components/TargetingComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/EnemyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/Public/Characters/EnemyCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/TalesOfObsydia/TalesOfObsydia.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/TalesOfObsydia/TalesOfObsydia.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TalesOfObsydia.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/TalesOfObsydia.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -181,6 +191,14 @@
       <workItem from="1704240335564" duration="1037000" />
       <workItem from="1704393366718" duration="12676000" />
       <workItem from="1704474163578" duration="4629000" />
+      <workItem from="1704683203968" duration="600000" />
+      <workItem from="1704846530504" duration="626000" />
+      <workItem from="1704998034844" duration="1467000" />
+      <workItem from="1705013594644" duration="998000" />
+      <workItem from="1705085184350" duration="3338000" />
+      <workItem from="1705109404057" duration="1349000" />
+      <workItem from="1705164815925" duration="1199000" />
+      <workItem from="1705436699627" duration="3127000" />
     </task>
     <servers />
   </component>
