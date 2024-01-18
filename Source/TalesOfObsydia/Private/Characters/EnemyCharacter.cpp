@@ -63,7 +63,8 @@ void AEnemyCharacter::BeginPlay()
 	
 }
 
-void AEnemyCharacter::BasicAttack()
+void AEnemyCharacter::BasicAttack_Implementation(AActor* TargetActor)
 {
-	
+	ICombatInterface::BasicAttack_Implementation(TargetActor);
 }
+

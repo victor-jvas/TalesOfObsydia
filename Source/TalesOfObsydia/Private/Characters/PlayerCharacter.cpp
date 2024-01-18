@@ -74,10 +74,12 @@ AActor* APlayerCharacter::GetTargetedActor()
 	
 }
 
-void APlayerCharacter::BasicAttack()
+void APlayerCharacter::BasicAttack_Implementation(AActor* TargetActor)
 {
-	
+	ICombatInterface::BasicAttack_Implementation(TargetActor);
+	UE_LOG(LogTemp, Display, TEXT("Player Character Version of Basic Attack!"));
 }
+
 
 void APlayerCharacter::InitAbilitySystemInfo()
 {

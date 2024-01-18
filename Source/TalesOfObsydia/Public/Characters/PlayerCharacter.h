@@ -42,5 +42,5 @@ private:
 	TObjectPtr<UTargetingComponent> TargetingComponent;
 
 	// Combat Interface Implementation
-	virtual void BasicAttack() override;
+	virtual void BasicAttack_Implementation(AActor* TargetActor) override;
 };

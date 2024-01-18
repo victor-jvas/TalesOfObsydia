@@ -40,5 +40,5 @@ private:
 	TObjectPtr<USphereComponent> CollisionSphere;
 
 	// Combat Interface Implementation
-	virtual void BasicAttack() override;
+	void BasicAttack_Implementation(AActor* TargetActor) override;
 };
