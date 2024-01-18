@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseCharacter.h"
+#include "Battle/CombatInterface.h"
 #include "PlayerCharacter.generated.h"
 
 class UTargetingComponent;
@@ -13,7 +14,7 @@ class USpringArmComponent;
  * 
  */
 UCLASS()
-class TALESOFOBSYDIA_API APlayerCharacter : public ABaseCharacter
+class TALESOFOBSYDIA_API APlayerCharacter : public ABaseCharacter, public ICombatInterface
 {
 	GENERATED_BODY()
 
@@ -39,4 +40,7 @@ private:
 	TObjectPtr<UCameraComponent> CameraComponent;
 	UPROPERTY(EditAnywhere, Category = "Components")
 	TObjectPtr<UTargetingComponent> TargetingComponent;
+
+	// Combat Interface Implementation
+	virtual void BasicAttack() override;
 };

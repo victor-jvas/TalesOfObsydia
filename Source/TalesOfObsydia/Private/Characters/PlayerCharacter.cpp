@@ -74,6 +74,11 @@ AActor* APlayerCharacter::GetTargetedActor()
 	
 }
 
+void APlayerCharacter::BasicAttack()
+{
+	
+}
+
 void APlayerCharacter::InitAbilitySystemInfo()
 {
 	ABasePlayerState* PS = Cast<ABasePlayerState>(UGameplayStatics::GetPlayerState(GetWorld(), 0));

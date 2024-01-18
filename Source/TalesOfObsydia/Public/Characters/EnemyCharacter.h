@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Battle/CombatInterface.h"
 #include "Characters/BaseCharacter.h"
 #include "EnemyCharacter.generated.h"
 
@@ -14,7 +15,7 @@ class UBaseAttributeSet;
  * 
  */
 UCLASS()
-class TALESOFOBSYDIA_API AEnemyCharacter : public ABaseCharacter
+class TALESOFOBSYDIA_API AEnemyCharacter : public ABaseCharacter, public ICombatInterface
 {
 	GENERATED_BODY()
 
@@ -37,4 +38,7 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<USphereComponent> CollisionSphere;
+
+	// Combat Interface Implementation
+	virtual void BasicAttack() override;
 };

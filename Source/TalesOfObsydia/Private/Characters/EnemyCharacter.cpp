@@ -62,3 +62,8 @@ void AEnemyCharacter::BeginPlay()
 	
 	
 }
+
+void AEnemyCharacter::BasicAttack()
+{
+	
+}
