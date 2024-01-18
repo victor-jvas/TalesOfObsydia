@@ -43,6 +43,6 @@ void UAbilityTask_CustomMoveToTarget::TickTask(float DeltaTime)
 	if (FVector::Dist(PC->GetActorLocation(), Destination) < 150)
 	{
 		OnTargetReached.Broadcast(PC, InitialLocation);
-		EndTask();
+		//EndTask();
 	}
 }

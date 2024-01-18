@@ -32,7 +32,7 @@ void UAbilityTask_CustomMoveToLocation::TickTask(float DeltaTime)
 	if (FVector::Dist(MovingCharacter->GetActorLocation(), Destination) < 100)
 	{
 		OnDestinationReached.Broadcast();
-		EndTask();
+		//EndTask();
 	}
 }
 
